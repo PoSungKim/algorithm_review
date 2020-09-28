@@ -8,7 +8,6 @@
 ### Vector 
 
 * 선언문
-
 ```C++
 vector<int> v = vector<int>({1,2,3,4,5});
 vector<int> v = vector<int>{1,2,3,4,5};
@@ -35,6 +34,21 @@ return {"this is possible"};
 }
 ```
 
+* Sort
+```C++
+bool cmp(const pair<int, int> a, const pair<int, int> b) {
+    return a.second < b.second;
+});
+sort(V.begin(), V.end(), cmp);
+```
+
+```C++
+sort(V.begin(), V.end(), 
+     [](const pair<int, int> a, const pair<int, int> b) {
+         return a.second < b.second;
+     });
+```
+
 <hr>
 
 ### Map
@@ -48,6 +62,20 @@ map<int, int> test({
 map<int, int> test{
     {1,2}, {2,3},{3,4},
 };
+```
+
+<hr>
+
+### Priority Queue
+
+* 선언문
+```C++
+struct cmp{
+    bool operator()(const pair <int, int> a, const pair <int, int> b) {
+        return a.first < b.first;
+    }  
+};
+priority_queue<pair<int, int>, vector<pair<int, int>>, cmp> PQ; 
 ```
 
 <hr>
