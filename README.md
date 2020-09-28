@@ -1,4 +1,4 @@
-# algorithm_review
+# Algorithm Review
 
 ### [C++ 문법](https://github.com/PoSungKim/algorithm_review/blob/master/c%2B%2B/note.md)
 > 복잡해보이는 C++ 문법을 이해하기 위해 정리해놓는 노트
