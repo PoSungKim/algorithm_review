@@ -49,3 +49,23 @@ map<int, int> test{
     {1,2}, {2,3},{3,4},
 };
 ```
+
+<hr>
+
+### Split
+* Python의 split 기능
+
+```C++
+#include <sstream>
+
+vector<string> split(string line, char delimiter) {
+    vector<string> internalContainer; 
+    stringstream ss(line); 
+    string temp;
+    
+    while(getline(ss, temp, delimiter)) // ss에서 delimiter까지 읽고 temp에 저장
+        internalContainer.push_back(temp);
+        
+    return internalContainer;
+}
+```
