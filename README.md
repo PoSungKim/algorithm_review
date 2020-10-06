@@ -20,3 +20,12 @@
   * 충분한 이해를 기반으로 코드를 작성하지 않으면, 코드가 간결해지지 않고 매우 길어질 수 있음을 주의!
 
 <hr>
+
+### [DFS | BFS](https://github.com/PoSungKim/algorithm_review/blob/master/DFS%7CBFS/0.note.md)
+> 스택을 사용하는 깊이 우선 탐색 (DFS), 큐를 사용하는 넓이 우선 탐색 (BFS)
+
+* 주의사항
+  * 한 Source에서 다른 모든 지점까지 한 번씩만 탐색하는 것이 DFS와 BFS!
+  * 코드 조정을 통해 모든 방법으로 지점들을 탐색하는 것은 DFS와 BFS가 아니라, 완전 탐색!
+
+<hr>
