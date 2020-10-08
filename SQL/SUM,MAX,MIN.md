@@ -27,10 +27,10 @@ SELECT COUNT(A.NAME)
 ```sql
 SELECT COUNT(DISTINCT NAME) 
   FROM ANIMAL_INS WHERE NAME is not null; 
-#WHERE 절로 좀 더 복잡한 조건들을 넣을 수 있음
 ```
+* WHERE 절로 좀 더 복잡한 조건들을 넣을 수 있음
 ```sql
 SELECT COUNT(DISTINCT NAME) 
   FROM ANIMAL_INS; 
-#DISTINCT는 NULL 포함, COUNT(DISTINCT) NULL 미포함
 ```
+* DISTINCT는 NULL 포함, COUNT(DISTINCT) NULL 미포함
