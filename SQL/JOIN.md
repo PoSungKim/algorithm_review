@@ -92,12 +92,15 @@ SELECT a.ANIMAL_ID, a.ANIMAL_TYPE, a.NAME
 ```
 * like 와 와일드카드 '%' 사용
 * '%' 가변 길이, '_' 한 자리
-
 ```sql
 SELECT a.ANIMAL_ID, a.ANIMAL_TYPE, a.NAME
     FROM ANIMAL_INS as a INNER JOIN ANIMAL_OUTS as b
         ON a.ANIMAL_ID = b.ANIMAL_ID
     WHERE a.SEX_UPON_INTAKE like 'Intact%'
-        AND (b.SEX_UPON_OUTCOME like 'Spayed%' or b.SEX_UPON_OUTCOME like 'Neutered%');
+        AND (b.SEX_UPON_OUTCOME REGEXP '^Spayed|^Neutered');
 ```
-* 정규표현식 REGEXP 
+* 정규표현식 REGEXP
+    * | : | 로 구분된 문자에 해당하는 문자열을 찾음.
+    * ^ : ___로 시작하는 문자열을 찾음.	
+    * $ : ___로 끝나는 문자열을 찾음.
+    * 예시: '^Sprayed$|^Neutered$'
