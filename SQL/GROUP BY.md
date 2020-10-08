@@ -14,8 +14,8 @@ SELECT NAME, COUNT(NAME) as COUNT
     GROUP BY NAME 
     HAVING COUNT > 1 
     ORDER BY NAME;
-#COUNT(column)은 NULL 미포함, COUNT(*)은 NULL 포함
 ```
+* COUNT(column)은 NULL 미포함, COUNT(*)은 NULL 포함
 
 ## 입양 시각 구하기(1)
 ```sql
