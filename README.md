@@ -35,7 +35,7 @@
 
 <hr>
 
-### [이진 탐색](https://github.com/PoSungKim/algorithm_review/blob/master/Binary%20Search/0.note.md)
+### [Binary Search](https://github.com/PoSungKim/algorithm_review/blob/master/Binary%20Search/0.note.md)
 > 순차 탐색으로 풀기에는 비효율적일 때 사용하는 알고리즘
 
 * 주의사항
