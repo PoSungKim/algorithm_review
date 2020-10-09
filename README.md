@@ -34,3 +34,12 @@
   * 코드 조정을 통해 모든 방법으로 지점들을 탐색하는 것은 DFS와 BFS가 아니라, 완전 탐색!
 
 <hr>
+
+### [이진 탐색](https://github.com/PoSungKim/algorithm_review/blob/master/Binary%20Search/0.note.md)
+> 순차 탐색으로 풀기에는 비효율적일 때 사용하는 알고리즘
+
+* 주의사항
+  * 이진 탐색 전에 배열이 먼저 정렬되어 있어야 한다.
+  * 탐색 범위의 크기를 보고, 이진 탐색이 필요한지 고민해보는 것이 현명! 
+
+<hr>
