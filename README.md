@@ -43,3 +43,14 @@
   * 탐색 범위의 크기를 보고, 이진 탐색이 필요한지 고민해보는 것이 현명! 
 
 <hr>
+
+### [Shortest Path (Dijkstra, Floyd-Warshall Algorithm)](https://github.com/PoSungKim/algorithm_review/blob/master/Shortest%20Path/0.note.md)
+> 특정한 노드에서 출발해서 다른 노드로 가는 각각의 최단 경로 --> Dijkstra Algorithm
+
+> 모든 지점에서 다른 모든 지점까지의 최단 경로 --> Floyd-Warshall Algorithm
+
+* 주의사항
+  * Dijkstra는 '음의 간선'이 존재하면 안되며, 매번 가장 비용이 적은 노드를 선택하기에 Greedy Algorithm 유형이다.
+  * Floyd-Warshall은 Dynamic Programming 유형이다.
+
+<hr>
