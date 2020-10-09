@@ -5,6 +5,11 @@
 * C++의 경우, 소소한 팁들을 통해 보다 효율적으로 문법 작성 가능
 <hr>
 
+### [SQL 문법](https://github.com/PoSungKim/algorithm_review/tree/master/SQL)
+> SQL 문법에 익숙해지기 위해 정리해놓는 노트
+* Table 간의 관계 연결도 중요, 문법도 중요
+<hr>
+
 ### [Greedy Algorithm](https://github.com/PoSungKim/algorithm_review/blob/master/greedy/0.note.md)
 > 각 스테이지마다 Local Optimum을 선택해서 Global Solution이 되도록 만드는 알고리즘
 
