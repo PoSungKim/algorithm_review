@@ -55,7 +55,7 @@
 
 <hr>
 
-### Graph Theory
+### [Graph Theory](https://github.com/PoSungKim/algorithm_review/blob/master/Graph%20Theory/0.note.md)
 > 서로소 집합을 찾기 위해 최종 부모 노드를 재귀적으로 찾는 Union-Find Algorithm
 
 > Minimum Spanning Three를 Union-Find를 활용하여 찾는 Kruskal Algorithm
