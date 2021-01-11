@@ -1,7 +1,7 @@
 ## FETCH FIRST 
-```oracle
-  SELECT 
-      * 
+```sql
+SELECT 
+  * 
   FROM 
       table_name
   ORDER BY
@@ -11,9 +11,9 @@
 * 출력하는 행의 숫자 N
 
 ## OFFSET + FETCH NEXT 
-```orcacle
-    SELECT 
-        *
+```sql
+SELECT 
+    *
     FROM
         table_name
     ORDER BY
