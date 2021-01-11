@@ -1,3 +1,11 @@
+## Cube
+```sql
+SELECT b.dname, a.job, SUM(a.sal) sal, COUNT(a.empno) emp_count 
+    FROM emp a, dept b 
+    WHERE a.deptno = b.deptno 
+    GROUP BY CUBE(b.dname, a.job)
+```
+
 ## Rollup
 ```sql
 SELECT
