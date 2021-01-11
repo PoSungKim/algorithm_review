@@ -5,6 +5,13 @@ SELECT *
   ORDER BY ANIMAL_ID;
 ```
 
+```sql
+SELECT * 
+  FROM ANIMAL_INS 
+  ORDER BY 1;
+```
+* column 순서에 따라서 1처럼 숫자를 넣을 수 있다
+
 ## 역순 정렬하기
 ```sql
 SELECT NAME, DATETIME 
