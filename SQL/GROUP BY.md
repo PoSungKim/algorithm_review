@@ -1,3 +1,12 @@
+## Rollup
+```sql
+SELECT
+position, subject, SUM(bonus)
+FROM
+PROFESSOR
+GROUP BY ROLLUP(position,  subject)
+```
+
 ## Grouping Sets
 ```sql
 SELECT 
