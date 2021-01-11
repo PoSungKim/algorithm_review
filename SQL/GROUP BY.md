@@ -1,3 +1,24 @@
+## Grouping Sets
+```sql
+SELECT 
+    customer, 
+    category,
+    GROUPING(customer) customer_grouping,
+    GROUPING(category) category_grouping,
+    SUM(sales_amount) 
+FROM customer_category_sales
+GROUP BY 
+    GROUPING SETS(
+        (customer,category),
+        (customer),
+        (category),
+        ()
+    )
+ORDER BY 
+    customer, 
+    category;
+```
+
 ## 고양이와 개는 몇 마리 있을까
 ```sql
 SELECT ANIMAL_TYPE, COUNT(ANIMAL_TYPE) as count 
