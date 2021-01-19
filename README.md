@@ -13,7 +13,7 @@
 ### [Shell Script && VI 편집](https://github.com/PoSungKim/algorithm_review/blob/master/Shell%20Script/0.note.md)
 > 회사에서 배운 내용 정리 용도
 * 그때 그때 정리 해놓는 것이 중요
-
+<hr>
 
 ### [Greedy Algorithm](https://github.com/PoSungKim/algorithm_review/blob/master/greedy/0.note.md)
 > 각 스테이지마다 Local Optimum을 선택해서 Global Solution이 되도록 만드는 알고리즘
