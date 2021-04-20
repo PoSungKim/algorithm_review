@@ -1,6 +1,6 @@
 # Algorithm Review
 
-### [C++ 문법](https://github.com/PoSungKim/algorithm_review/blob/master/c%2B%2B/0.note.md)
+### [C++ 문법](https://github.com/PoSungKim/algorithm_review/tree/master/c++)
 > 복잡해보이는 C++ 문법을 이해하기 위해 정리해놓는 노트
 * C++의 경우, 소소한 팁들을 통해 보다 효율적으로 문법 작성 가능
 <hr>
@@ -10,7 +10,7 @@
 * Table 간의 관계 연결도 중요, 문법도 중요
 <hr>
 
-### [Shell Script && VI 편집](https://github.com/PoSungKim/algorithm_review/blob/master/Shell%20Script/0.note.md)
+### [Shell Script && VI 편집](https://github.com/PoSungKim/algorithm_review/tree/master/Shell%20Script)
 > 회사에서 배운 내용 정리 용도
 * 그때 그때 정리 해놓는 것이 중요
 <hr>
