@@ -5,11 +5,6 @@
 * C++의 경우, 소소한 팁들을 통해 보다 효율적으로 문법 작성 가능
 <hr>
 
-### [Java](https://github.com/PoSungKim/algorithm_review/tree/master/java)
-> Java에 대한 주요 핵심 개념 정리
-* 면접에서 자바 기반 질문이 많이 출제
-<hr>
-
 ### [SQL 문법](https://github.com/PoSungKim/algorithm_review/tree/master/SQL)
 > SQL 문법에 익숙해지기 위해 정리해놓는 노트
 * Table 간의 관계 연결도 중요, 문법도 중요
