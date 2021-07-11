@@ -13,7 +13,7 @@ class Solution {
         for(String c : completion) 
             hm.put(c, hm.get(c) - 1);
         
-        String a = new String();
+        String a = "";
         for(String k : hm.keySet())
             if (hm.get(k) != 0)
                 a = k;
