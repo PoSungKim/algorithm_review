@@ -3,71 +3,82 @@ import java.util.HashSet;
 
 class Solution {
     
-    StringBuilder sb = new StringBuilder();
-    HashSet<String> hs = new HashSet<>();
-    
     public String solution(String new_id) {
-        one(new_id);
-        two();
-        three(); 
-        four();
-        five();
-        six();
-        seven();
-    
+        
         //for(Method m : sb.getClass().getMethods()) System.out.println(m);
-        return sb.toString();
+        return new KakaoID().one(new_id).two().three().four().five().six().seven();
+    }
+}
+
+class KakaoID {
+    
+    StringBuilder sb; 
+    HashSet<String> hs; 
+    
+    KakaoID() {
+        sb = new StringBuilder();
+        hs = new HashSet<>();
     }
     
-    public void one(String s){
+    KakaoID one(String s){
         sb.append(s.toLowerCase());
+        return this;
     }
     
-    public void two() {
+     KakaoID two() {
         hs.add("-"); hs.add("_"); hs.add(".");
         for(int i = 0; i < sb.length(); i++) 
             if (!isValid(sb.charAt(i))) {
                 sb.deleteCharAt(i);
                 i--;
             }
-                
+        return this;
     }
     
-    public void three() {
+     KakaoID three() {
         for(int i = 0; i < sb.length(); i++) 
             if (sb.charAt(i) == '.' && i > 0 && sb.charAt(i - 1) == '.') {
                 sb.deleteCharAt(i);   
                 i--;
-            }   
+            }
+        return this;
     }
     
-    public void four() {
+     KakaoID four() {
         while(sb.length() > 0 && sb.charAt(0) == '.')
             sb.deleteCharAt(0);
         
         while(0 < sb.length() && sb.charAt(sb.length() - 1) == '.') 
             sb.deleteCharAt(sb.length() - 1);
+        
+        return this;
     }
     
-    public void five() {
+     KakaoID five() {
         if(sb.length() == 0)
             sb.append("a");
+        
+        return this;
     }
     
-    public void six() {
+     KakaoID six() {
         if (sb.length() >= 16)
             sb.setLength(15);
         
         while(0 < sb.length() && sb.charAt(sb.length() - 1) == '.') 
             sb.deleteCharAt(sb.length() - 1);
+        
+        return this;
     }
     
-    public void seven() {
+     String seven() {
         while(sb.length() <= 2)
             sb.append(sb.charAt(sb.length()-1));
+        
+        return sb.toString();
     }
     
-    public boolean isValid(char c) {
+     boolean isValid(char c) {
         return ( ('0' <= c && c <= '9') || ('a' <= c && c <= 'z') || hs.contains(String.valueOf(c)));
     }
 }
