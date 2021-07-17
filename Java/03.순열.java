@@ -5,7 +5,7 @@ class Solution {
     int[] list = new int[] {1,2,3,4,5};
     int[] ret  = new int[list.length];
     
-    public int solution(int n, int s, int a, int b, int[][] fares) {
+    public int solution() {
         
         // nPr
         int r = 3;
