@@ -5,10 +5,10 @@ import java.util.Comparator;
 import java.util.Collections;
 
 class Solution {
-    int     [] primArr = new int [] {3,5,2,4,1,7};
-    Integer [] objArr  = Arrays.stream(primArr) 
-                               .boxed()              
-                               .toArray(Integer[]::new);
+    int [] primArr = new int [] {3,5,2,4,1,7};
+    Integer [] objArr = Arrays.stream(primArr) 
+                              .boxed()              
+                              .toArray(Integer[]::new);
     List<Integer> list = new ArrayList<>(Arrays.asList(objArr)); 
     
     public int solution(int n, int s, int a, int b, int[][] fares) {
@@ -52,9 +52,22 @@ class Solution {
         Arrays.sort(objArr, (a1,a2) -> a2 - a1);
         System.out.println(Arrays.toString(objArr));
         
-        // 2.3 Descending order(Collections)
+        // 2.31 Descending order(Collections)
         // Collections.reverseOrder()는 Comparator 객체 
         Collections.sort(list, Collections.reverseOrder());
+        System.out.println(list);
+        
+        // 2.32 Descending order(Collections)
+        Collections.sort(list, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2 - o1;
+            }
+        });
+        System.out.println(list);
+        
+        // 2.33 Descending order(Collections)
+        Collections.sort(list, new myOwnCompare());
         System.out.println(list);
         
         return 0;
