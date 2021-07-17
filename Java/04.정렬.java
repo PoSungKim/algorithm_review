@@ -11,7 +11,7 @@ class Solution {
                               .toArray(Integer[]::new);
     List<Integer> list = new ArrayList<>(Arrays.asList(objArr)); 
     
-    public int solution(int n, int s, int a, int b, int[][] fares) {
+    public int solution( ) {
         
         // 1.1 Ascending order(Primitve-Type Arrays)
         Arrays.sort(primArr);
