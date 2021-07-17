@@ -4,7 +4,7 @@ class Solution {
     
     int[] list = new int[] {1,2,3,4,5};
     
-    public int solution(int n, int s, int a, int b, int[][] fares) {
+    public int solution() {
         
         // nC0... nCn
         comb1();
