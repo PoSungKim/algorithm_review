@@ -37,7 +37,6 @@ class Solution {
         System.out.println(Arrays.toString(objArr));
         
         // 2.22 Descending order(Object-Type Arrays)
-        
         class myOwnCompare implements Comparator<Integer> {
             @Override
             public int compare(Integer o1, Integer o2) {
