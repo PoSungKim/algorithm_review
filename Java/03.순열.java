@@ -20,10 +20,11 @@ class Solution {
             System.out.println(Arrays.toString(ret));
             return;
         }
-        // flag | 1 << i : OR 연산을 통해 하나씩 더해가는 효과
+        // flag | 1 << i : OR 연산을 통해 하나씩 i 자리에 1을 더해가는 효과
         for(int i = 0; i < list.length; i++) {
             if ( (flag & (1 << i)) != 0) continue;
-            ret[cnt] = list[i];
+            // i 자리 값을 cnt 자리에 넣어준다
+            ret[cnt] = list[i]; 
             perm(cnt + 1, r, flag | 1 << i);
         }
     }
