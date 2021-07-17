@@ -9,7 +9,8 @@ class Solution {
         // nC0... nCn
         comb1();
         // nCr
-        comb2(3);
+        int r = 3;
+        comb2(r);
         
         return 0;
     }
@@ -17,7 +18,7 @@ class Solution {
     public void comb1() {
         for(int i = 0; i < (1 << list.length); i++) {
             for(int j = 0; j < list.length; j++) {
-                if ((i & (1 << j)) > 0 ) {
+                if ((i & (1 << j)) != 0 ) {
                     System.out.print(list[j] + " ");
                 }
             }
@@ -28,7 +29,7 @@ class Solution {
     public void comb2(int r) {
         for(int i = 0; i < (1 << list.length); i++) {
             for(int j = 0; j < list.length; j++) {
-                if (Integer.bitCount(i) == r && (i & (1 << j)) > 0 ) {
+                if (Integer.bitCount(i) == r && (i & (1 << j)) != 0 ) {
                     System.out.print(list[j] + " ");
                 }
             }
