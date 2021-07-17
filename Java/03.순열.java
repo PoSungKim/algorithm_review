@@ -6,7 +6,6 @@ class Solution {
     int[] ret  = new int[list.length];
     
     public int solution() {
-        
         // nPr
         int r = 3;
         perm(0, r, 0);
