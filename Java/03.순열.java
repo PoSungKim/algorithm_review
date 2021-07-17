@@ -14,12 +14,13 @@ class Solution {
         return 0;
     }
     
+    // cnt : 개수, r : nPr, flag : 현재 bit 형태의 숫자
     public void perm(int cnt, int r, int flag) {
         if (cnt == r) {
             System.out.println(Arrays.toString(ret));
             return;
         }
-        
+        // flag | 1 << i : OR 연산을 통해 하나씩 더해가는 효과
         for(int i = 0; i < list.length; i++) {
             if ( (flag & (1 << i)) != 0) continue;
             ret[cnt] = list[i];
