@@ -13,7 +13,7 @@ class Solution {
         return 0;
     }
     
-    // cnt : 개수, r : nPr, flag : 현재 bit 형태의 숫자
+    // cnt : 개수, r : nPr, flag : 현재 bit 형태의 숫자, 시작은 아무런 값이 없는 초기화 상태인 0 값이 초기 값으로 들어온다
     public void perm(int cnt, int r, int flag) {
         if (cnt == r) {
             System.out.println(Arrays.toString(ret));
