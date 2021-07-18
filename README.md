@@ -26,7 +26,7 @@
 
 <hr>
 
-### [DFS | BFS](https://github.com/PoSungKim/algorithm_review/blob/master/DFS%7CBFS/0.note.md)
+### [DFS | BFS](https://github.com/PoSungKim/algorithm_review/tree/master/For%20Coding%20Test/DFS%7CBFS)
 > 스택을 사용하는 깊이 우선 탐색 (DFS), 큐를 사용하는 넓이 우선 탐색 (BFS)
 
 * 주의사항
@@ -35,7 +35,7 @@
 
 <hr>
 
-### [Binary Search](https://github.com/PoSungKim/algorithm_review/blob/master/Binary%20Search/0.note.md)
+### [Binary Search](https://github.com/PoSungKim/algorithm_review/blob/master/For%20Coding%20Test/Binary%20Search)
 > 순차 탐색으로 풀기에는 비효율적일 때 사용하는 알고리즘
 
 * 주의사항
