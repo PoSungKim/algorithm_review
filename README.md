@@ -10,7 +10,7 @@
 * Table 간의 관계 연결도 중요, 문법도 중요
 <hr>
 
-### [Greedy Algorithm](https://github.com/PoSungKim/algorithm_review/tree/master/This%20is%20for%20Coding%20Test/greedy)
+### [Greedy Algorithm](https://github.com/PoSungKim/algorithm_review/tree/master/For%20Coding%20Test/Greedy)
 > 각 스테이지마다 Local Optimum을 선택해서 Global Solution이 되도록 만드는 알고리즘
 
 * 주의사항
