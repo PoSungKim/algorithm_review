@@ -18,7 +18,7 @@
   * 따라서, 그리디 알고리즘의 정당성을 먼저 "확실히" 확인한 이후에, 코딩을 시작하는 것이 중요.
 <hr>
 
-### [구현 (완전 탐색과 시뮬레이션)](https://github.com/PoSungKim/algorithm_review/blob/master/%EA%B5%AC%ED%98%84/0.note.md)
+### [구현 (완전 탐색과 시뮬레이션)](https://github.com/PoSungKim/algorithm_review/tree/master/For%20Coding%20Test/구현)
 > 지문에 나온 상황 혹은 가이드라인을 이해해서 머릿속에서 구현하는 알고리즘
 
 * 주의사항
