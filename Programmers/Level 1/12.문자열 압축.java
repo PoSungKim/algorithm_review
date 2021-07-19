@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import java.util.*;
        
+=======
+import java.util.*;   
+
+>>>>>>> 16d4f9dcd212737b4c6f6efd66ac8e41004521d7
 class Solution {
     public int solution(String s) {
         int ret = 987654321;
