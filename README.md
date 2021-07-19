@@ -1,6 +1,6 @@
 # Algorithm Review
 
-### [C++ 문법](https://github.com/PoSungKim/algorithm_review/tree/master/c++)
+### [C++ 문법](https://github.com/PoSungKim/algorithm_review/tree/master/C++)
 > 복잡해보이는 C++ 문법을 이해하기 위해 정리해놓는 노트
 * C++의 경우, 소소한 팁들을 통해 보다 효율적으로 문법 작성 가능
 <hr>
@@ -10,7 +10,7 @@
 * Table 간의 관계 연결도 중요, 문법도 중요
 <hr>
 
-### [Greedy Algorithm](https://github.com/PoSungKim/algorithm_review/tree/master/This%20is%20for%20Coding%20Test/greedy)
+### [Greedy Algorithm](https://github.com/PoSungKim/algorithm_review/tree/master/For%20Coding%20Test/Greedy)
 > 각 스테이지마다 Local Optimum을 선택해서 Global Solution이 되도록 만드는 알고리즘
 
 * 주의사항
@@ -18,7 +18,7 @@
   * 따라서, 그리디 알고리즘의 정당성을 먼저 "확실히" 확인한 이후에, 코딩을 시작하는 것이 중요.
 <hr>
 
-### [구현 (완전 탐색과 시뮬레이션)](https://github.com/PoSungKim/algorithm_review/blob/master/%EA%B5%AC%ED%98%84/0.note.md)
+### [구현 (완전 탐색과 시뮬레이션)](https://github.com/PoSungKim/algorithm_review/tree/master/For%20Coding%20Test/구현)
 > 지문에 나온 상황 혹은 가이드라인을 이해해서 머릿속에서 구현하는 알고리즘
 
 * 주의사항
@@ -26,7 +26,7 @@
 
 <hr>
 
-### [DFS | BFS](https://github.com/PoSungKim/algorithm_review/blob/master/DFS%7CBFS/0.note.md)
+### [DFS | BFS](https://github.com/PoSungKim/algorithm_review/tree/master/For%20Coding%20Test/DFS%7CBFS)
 > 스택을 사용하는 깊이 우선 탐색 (DFS), 큐를 사용하는 넓이 우선 탐색 (BFS)
 
 * 주의사항
@@ -35,7 +35,7 @@
 
 <hr>
 
-### [Binary Search](https://github.com/PoSungKim/algorithm_review/blob/master/Binary%20Search/0.note.md)
+### [Binary Search](https://github.com/PoSungKim/algorithm_review/blob/master/For%20Coding%20Test/Binary%20Search)
 > 순차 탐색으로 풀기에는 비효율적일 때 사용하는 알고리즘
 
 * 주의사항
@@ -44,7 +44,7 @@
 
 <hr>
 
-### [Shortest Path (Dijkstra, Floyd-Warshall Algorithm)](https://github.com/PoSungKim/algorithm_review/blob/master/Shortest%20Path/0.note.md)
+### [Shortest Path (Dijkstra, Floyd-Warshall Algorithm)](https://github.com/PoSungKim/algorithm_review/blob/master/For%20Coding%20Test/Shortest%20Path)
 > 특정한 노드에서 출발해서 다른 노드로 가는 각각의 최단 경로: Dijkstra Algorithm
 
 > 모든 지점에서 다른 모든 지점까지의 최단 경로: Floyd-Warshall Algorithm
@@ -55,7 +55,7 @@
 
 <hr>
 
-### [Graph Theory](https://github.com/PoSungKim/algorithm_review/blob/master/Graph%20Theory/0.note.md)
+### [Graph Theory](https://github.com/PoSungKim/algorithm_review/blob/master/For%20Coding%20Test/Graph%20Theory)
 > 서로소 집합을 찾기 위해 최종 부모 노드를 재귀적으로 찾는 Union-Find Algorithm
 
 > Minimum Spanning Three를 Union-Find를 활용하여 찾는 Kruskal Algorithm
