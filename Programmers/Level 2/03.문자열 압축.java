@@ -20,7 +20,7 @@ class Solution {
             ans.append(sb);
             ret = Math.min(ret, ans.length());
         } 
-        // 1.2 "a"처럼 길이가 1이면, 압축이 불가능해서 답이 1과 같다
+        // 1.2 "a"처럼 길이가 1이면, 압축이 불가능해서 답이 원래 자기 길이와 같다
         return ret;
     }
 }
