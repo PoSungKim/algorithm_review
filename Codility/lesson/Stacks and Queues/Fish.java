@@ -7,18 +7,14 @@ class Solution {
         
         int curPos = 0;
         while(curPos < A.length){
-            if (!Stack.isEmpty() && B[Stack.peek()] == 1 && B[curPos] == 0) {
-                if (A[Stack.peek()] > A[curPos]) {
+            if (!Stack.isEmpty() && B[Stack.peek()] == 1 && B[curPos] == 0)
+                if (A[Stack.peek()] > A[curPos]) 
                     curPos++;
-                } else {
+                else 
                     Stack.pop();
-                }
-            } else {
+            else 
                 Stack.push(curPos++);
-            }
         }
         return Stack.size();   
     }
 }
-
-// Time Complexity calculated by Codility: O(N)
