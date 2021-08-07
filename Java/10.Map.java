@@ -10,7 +10,7 @@ class Solution {
         // A : [4, 3, 2, 1, 5]
         // B : [0, 1, 0, 0, 0]
         for(int i = 0; i < A.length; i ++)  {
-            List.add(new AbstractMap.SimpleEntry<Integer, Integer>(A[i], B[i]));
+            List.add(new AbstractMap.SimpleEntry<Integer, Integer>(A[i], B[i])); // Map.Entry는 Interface; therefore, it cannot be instantiated
             HashMap.put(A[i], B[i]);
             TreeMap.put(A[i], B[i]);
             LinkedHashMap.put(A[i], B[i]);
