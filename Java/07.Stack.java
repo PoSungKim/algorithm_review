@@ -1,13 +1,25 @@
+import java.util.*;
 
-Class 
+class Solution {
+    
+    Stack<Character> Stack = new Stack<>();
+  
+    public int solution(int[] A, int[] B) {
 
-Stack<Character> Stack = new Stack<>();
-Stack.push('a'); // ['a']
-Stack.push('b'); // ['a']
-Stack.push('c');
+        Stack.push('a'); // ['a']
+        Stack.push('b'); // ['a', 'b']
+        Stack.push('c'); // ['a', 'b', 'c']
+        Stack.isEmpty() // False
+          
+        System.out.println(Stack.peek()); // 'c'
+        
+        Stack.pop(); // ['a', 'b']
+        Stack.pop(); // ['a']
+        Stack.pop(); // []
+        Stack.isEmpty() // True
+          
+        return 0;
+    }
+}
 
-System.out.println(Stack.peek());
 
-Stack.pop();
-Stack.pop();
-Stack.pop();
