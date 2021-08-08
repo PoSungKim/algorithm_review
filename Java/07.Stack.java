@@ -12,13 +12,15 @@ class Solution {
         Stack.isEmpty() // False
           
         System.out.println(Stack.peek()); // 'c'
+        System.out.println(Stack.contains('c')); // true
         System.out.println(Stack.toString()); // ['a', 'b', 'c']
         System.out.println(Arrays.toString(Stack.toArray())); // ['a', 'b', 'c']
+        
         
         Stack.pop(); // ['a', 'b']
         Stack.pop(); // ['a']
         Stack.pop(); // []
-        Stack.isEmpty() // True
+        Stack.isEmpty() // true
           
         return 0;
     }
