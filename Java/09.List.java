@@ -41,3 +41,30 @@ class Solution {
 }
 
 // Collections와 함께 사용할 수 있는 유용 Methods들이 많다
+
+class Solution2 {
+    
+    public int solution2(int X, int Y, int D) {
+        
+        Map<Integer, Integer> Map = new TreeMap<>();
+        Map.put(1, 2);
+        Map.put(2, 1);
+        Map.put(3, 0);
+        System.out.println(Map);
+        
+        List<Map.Entry<Integer, Integer>> List = new ArrayList<>(Map.entrySet());
+        System.out.println(List);
+
+        Collections.sort(List, new Comparator<Map.Entry<Integer, Integer>>(){
+            @Override
+            public int compare(Map.Entry<Integer, Integer> a, Map.Entry<Integer, Integer> b) {
+                return b.getValue() - a.getValue();
+            }
+        });
+
+        System.out.println(List);
+
+        return 0;
+    }
+}
+
