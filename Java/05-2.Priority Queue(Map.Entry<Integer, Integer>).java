@@ -2,12 +2,7 @@ import java.util.*;
 
 class Solution {
 
-    Map<Integer, Integer> Map = new TreeMap<>(new Comparator<Integer>(){
-        @Override
-        public int compare(Integer a, Integer b) {
-            return b - a;
-        }
-    });
+    Map<Integer, Integer> Map = new TreeMap<>();
 
     public int solution(int X, int Y, int D) {
         
