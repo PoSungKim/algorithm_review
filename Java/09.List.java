@@ -12,7 +12,7 @@ class Solution {
         System.out.println(List.get(0));      // 1
         System.out.println(List.set(0, 100)); // [100, 2, 3]
         System.out.println(List.get(0));      // 100 
-        System.out.println(List.remove(100)); // [2, 3]
+        System.out.println(List.remove(0));   // [2, 3] >> this.remove(int index) 
         System.out.println(List);             // [2, 3]
 
         return A;
