@@ -19,8 +19,6 @@ class Solution {
                 return a.getKey() - b.getKey() ;
             }
         });
-        
-        PriorityQueue<Map.Entry<Integer, Integer>> PQ2 = new PriorityQueue<>(new myCompare());
       
         PQ.addAll(Map.entrySet());
         
