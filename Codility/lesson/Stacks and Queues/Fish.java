@@ -17,3 +17,4 @@ class Solution {
         return Stack.size();   
     }
 }
+// Time Complexity calculated by Codility: O(N)
