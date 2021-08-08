@@ -27,3 +27,24 @@ class Solution {
         return 0;
     }
 }
+
+class Solution2 {
+    // TreeMap은 Key 값으로 정렬하기 편함
+    Map<Integer, Integer> Map = new TreeMap<>(new Comparator<Integer>(){
+        @Override
+        public int compare(Integer a, Integer b) {
+            return b - a;
+        }
+    });
+
+    public int solution(int X, int Y, int D) {
+        
+        Map.put(1, 2);
+        Map.put(2, 1);
+        Map.put(3, 0);
+        
+        System.out.println(Map);
+
+        return 0;
+    }
+}
