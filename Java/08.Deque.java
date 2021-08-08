@@ -11,7 +11,7 @@ class Solution {
         System.out.println(Deq.peekLast());  // 4
         System.out.println(Deq);             // [3, 1, 2, 4]
         
-        System.out.println(Deq.remove(2));   // true 
+        System.out.println(Deq.remove(2));   // true >> this.remove(E);
         System.out.println(Deq);             // [3, 1, 4]
         System.out.println(Deq.offerFirst(2)); // [2, 3, 1, 4]
         
