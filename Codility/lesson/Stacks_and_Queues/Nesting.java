@@ -22,3 +22,4 @@ class Solution {
         return Stack.isEmpty() ? 1 : 0;
     }
 }
+// Time Complexity calculated by Codility: O(N)
