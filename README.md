@@ -1,5 +1,10 @@
 # Algorithm Review
 
+### [Java 문법](https://github.com/PoSungKim/algorithm_review/tree/master/Java)
+> 다양한 기능을 제공하는 Java 공부 노트
+* 그때 그때 유용한 메소드나 클라스 기록 필요
+<hr>
+
 ### [C++ 문법](https://github.com/PoSungKim/algorithm_review/tree/master/C++)
 > 복잡해보이는 C++ 문법을 이해하기 위해 정리해놓는 노트
 * C++의 경우, 소소한 팁들을 통해 보다 효율적으로 문법 작성 가능
