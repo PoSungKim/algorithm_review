@@ -14,6 +14,7 @@ class Solution {
         System.out.println(List.set(0, 100)); // [100, 2, 3]
         System.out.println(List.get(0));      // 100 
         System.out.println(List.remove(0));   // [2, 3] >> this.remove(int index) 
+        System.out.println(List.add(0, 10));  // [10, 2, 3]
         System.out.println(List);             // [2, 3]
         
         Collections.reverse(List);
