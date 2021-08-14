@@ -1,0 +1,18 @@
+17
+2021-07-20T07:58:08.487+09:00 e51254b0-53a3-42ec-b050-f5a8fcfaffaa event event_dashboard 4 0 4G ios 4.11.13
+2021-07-20T07:58:11.837+09:00 f20d15b6-cc7b-445a-8bd8-fcdcac196ca5 state inquiry 15 0 4G ios 4.11.13
+2021-07-20T07:58:14.779+09:00 15d30c8e-cfa2-4d3b-bd1a-6bab6dd7e5b6 state quiz_main 11 0 4G ios 4.11.13
+2021-07-20T07:58:17.112+09:00 f74ec044-0c29-4515-b6aa-af4d444047e6 event event_timeline_detail 5 0 4G ios 4.11.13
+2021-07-20T07:58:20.105+09:00 f5f3f9d0-9c40-4972-96d6-d3a2e824d95f state prime_start 9 0 4G ios 4.11.13
+2021-07-20T07:58:23.405+09:00 375df006-4c96-439d-98a0-b0c67464d711 state my_profile 8 0 4G ios 4.11.13
+2021-07-20T07:58:26.187+09:00 3c31f29e-60b0-4556-ba14-a440bf52eabd state transfer_complete 6 0 4G ios 4.11.13
+2021-07-20T07:58:29.920+09:00 64a06a73-dee8-4e12-be7c-cca529d6950a event event_cashback_invite 12 0 4G ios 4.11.13
+2021-07-20T07:58:32.870+09:00 cf88ac48-e473-4e45-8a21-fd832510c5b1 event event_cashback_invite 12 0 4G ios 4.11.13
+2021-07-20T00:05:52.615+09:00 38f6e384-e6ff-4165-89df-e71b5999cf52 event event_account_agreement 1 1 Unknown ios 4.7.14
+2021-07-20T00:05:55.032+09:00 028c5a9a-5f69-4820-b52c-20fd9fe6835e event event_toss_card_change 14 1 Unknown ios 4.7.14
+2021-07-20T00:05:58.216+09:00 843a4532-91db-47d4-8748-c3fed19f7d7f state enter_account_no 6 1 Unknown ios 4.7.14
+2021-07-20T00:06:01.970+09:00 dcdfee7f-120a-4b73-b0cb-099d4a071f39 state account_tab 6 1 Unknown ios 4.7.14
+2021-07-20T00:06:04.038+09:00 f10aac01-404b-4f2e-9d69-eaf250a81072 event event_dashboard 4 1 Unknown ios 4.7.14
+2021-07-20T00:06:07.938+09:00 0b9d040a-f596-457e-b99a-529712a53bbc state toss_card_change 14 1 Unknown ios 4.7.14
+2021-07-20T00:06:10.457+09:00 6eb0bb1f-97a6-4e44-85d8-ef09541ebaf6 event event_init_start 1 1 Unknown ios 4.7.14
+2021-07-20T00:06:13.968+09:00 deab3e6d-349d-4efb-b7c0-5776bb6b7dfd event event_signup_name 1 1 Unknown ios 4.7.14
