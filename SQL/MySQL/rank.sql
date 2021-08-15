@@ -1,0 +1,7 @@
+select *
+FROM (
+    SELECT ANIMAL_ID, @RANK := @RANK + 1 'RANK'
+    FROM ANIMAL_INS, (SELECT @RANK := 0 as 'RANK') XX
+    ORDER BY ANIMAL_ID DESC
+) a
+limit 5, 5;
