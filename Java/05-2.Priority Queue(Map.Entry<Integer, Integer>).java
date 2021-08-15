@@ -39,6 +39,48 @@ class Solution2 {
         @Override
         public int compare(Map.Entry<Integer, Integer> a, Map.Entry<Integer, Integer> b) {
                 if (b.getKey() == a.getKey())
+                    // 특정 character를 내림차순으로 sorting하고자 한다면, b를 기준으로 sort하면 편함
+                    // b의 값이 a보다 더 클 때   + 양수 리턴  >> [b,a]
+                    // b의 값이 a보다 더 작을 때  - 음수 리턴 >> [a,b]
+                    if (a.getKey() == 't') {
+                        if (b.getKey() == 'o')
+                            return -1;
+                        if (b.getKey() == 's')
+                            return -1;
+                        return -1;
+                    } else if (a.getKey() == 'o') {
+                        if (b.getKey() == 't')
+                            return 1;
+                        if (b.getKey() == 's')
+                            return -1;
+                        return -1;
+                    } else if (a.getKey() == 's') {
+                        if (b.getKey() == 't')
+                            return 1;
+                        if (b.getKey() == 'o')
+                            return 1;
+                        return -1;
+                    }
+
+                    if (b.getKey() == 't') {
+                        if (a.getKey() == 'o')
+                            return 1;
+                        if (a.getKey() == 's')
+                            return 1;
+                        return 1;
+                    } else if (b.getKey() == 'o') {
+                        if (a.getKey() == 't')
+                            return -1;
+                        if (a.getKey() == 's')
+                            return 1;
+                        return 1;
+                    } else if (b.getKey() == 's') {
+                        if (a.getKey() == 't')
+                            return -1;
+                        if (a.getKey() == 'o')
+                            return -1;
+                        return 1;
+                    }
                     return b.getValue() - a.getValue() ;
                 
                 return  b.getKey() - a.getKey() ;
