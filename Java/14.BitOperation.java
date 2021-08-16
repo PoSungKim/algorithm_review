@@ -13,7 +13,6 @@ class BitOperation {
         System.out.println("Sum(7) of {1, 2, 3, 4, 5, 6}");
         System.out.println("==============================");
         Sum7(data2.length);
-
     }
 
     public static int X = 3; // 00000011
