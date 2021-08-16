@@ -13,7 +13,10 @@ class BitOperation {
         System.out.println("Sum(7) of {1, 2, 3, 4, 5, 6}");
         System.out.println("==============================");
         Sum7(data2.length);
-
+        System.out.println("==============================");
+        System.out.println("Useful Bit Operation List");
+        System.out.println("==============================");
+        usefulBitOper();
     }
 
     public static int X = 3; // 00000011
@@ -64,5 +67,11 @@ class BitOperation {
 
             System.out.println();
         }
+    }
+
+    public static void usefulBitOper() {
+        System.out.println("i번째 원소가 있는 지 확인 : (비트로 표현된 집합) &  (1<<i)");
+        System.out.println("i번째 원소 추가           : (비트로 표현된 집합) |  (1<<i)");
+        System.out.println("i번째 원소 삭제           : (비트로 표현된 집합) & ^(1<<i)");
     }
 }
