@@ -46,7 +46,9 @@ public class BFS {
     public static void showBoard() {
         for (int y = 0; y < N; y++) {
             for (int x = 0; x < N; x++) {
-                System.out.format("%3d", Board[y][x]);
+                if (y == 0 && x == 1) System.out.format("%5s", "from");
+                else if (y == 4 && x == 2) System.out.format("%5s", "to");
+                else System.out.format("%5d", Board[y][x]);
             }
             System.out.println();
         }
