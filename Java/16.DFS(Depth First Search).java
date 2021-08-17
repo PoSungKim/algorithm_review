@@ -64,8 +64,7 @@ public class DFS {
         showBoard();
     }
 
-    public static int[][] Board = { { 0, 0, 0, 0, 0 }, { 0, 0, 0, 1, 1 }, { 0, 0, 0, 1, 0 }, { 1, 1, 1, 1, 0 },
-            { 0, 0, 0, 0, 0 } };
+    public static int[][] Board = { { 0, 0, 0, 0, 0 }, { 0, 0, 0, 1, 1 }, { 0, 0, 0, 1, 0 }, { 1, 1, 1, 1, 0 },{ 0, 0, 0, 0, 0 } };
     public static int[][] Dirs = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
 
     public static class Point {
