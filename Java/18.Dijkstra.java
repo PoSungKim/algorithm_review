@@ -25,7 +25,7 @@ public class Dijkstra  {
             if (Visited[u]) continue;
             Visited[u] = true;
             for(int v = 0; v < N; v++) { 
-                // Greedy Algorithm (그때 그때 가장 가까운 거리의 노드에 연결)
+                // 특성 1. Greedy Algorithm (그때 그때 가장 가까운 거리의 노드에 연결)
                 // 그때 그때의 거리가 아니라 돌아가는 것이 더 짧을 수도 있다는 생각을 할 수도 있다
                 // 하지만, 또 다른 각도에서 생각해보면, 에초에 더 짧은 거리로 갔기 때문에 더 짧은 거리로 돌아할 수도 있는 가능성이 있는거지
                 // 더 먼 거리로 갔다가 돌아오면 당연히 더 긴 시간이 걸릴 수밖에 없다 >> 이 부분 때문에 Greedy Algorithm에 속해도 Global Optimum을 찾을 수 있는 것 같다
@@ -33,6 +33,7 @@ public class Dijkstra  {
                     Dist[v] = Dist[u] + Graph[u][v];
                     PQ.offer(new int[]{Dist[v], v});
                 }
+                // 특성 2. Dynamic Programming (기존에 계산한 값을 통해 새로운 값을 구함)
             }
         }
     }
