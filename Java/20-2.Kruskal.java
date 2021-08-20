@@ -63,7 +63,7 @@ public class Kruskal {
         setParents();
         sortEdges();
         System.out.println("======================================");
-        System.out.format("[%s, %s, %s]\n", "u", "v", "cost");
+        System.out.format("[%s, %s, %s]\n", "cost", "u", "v");
         System.out.println("======================================");
         showEdges();
         int totalCost = 0;
