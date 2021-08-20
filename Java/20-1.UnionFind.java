@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Kruskal {
+public class UnionFind {
     public static final int MAX_N = 100000;
     public static int[] Parents = new int[MAX_N];
     public static int N, E;
