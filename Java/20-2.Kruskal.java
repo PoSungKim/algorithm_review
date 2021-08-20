@@ -5,11 +5,12 @@ public class Kruskal {
     public static final int MAX_N = 20;
     public static List<int[]> Edges  = new ArrayList<>();
     public static int[] Parents = new int[MAX_N];
-    public static int N, E;
+    public static int V, E;
+    public static String fileName;
 
     public static void setUpEdges() throws Exception {
-        Scanner sc = new Scanner(new File("20-2.data.txt"));
-        N = sc.nextInt(); E = sc.nextInt();
+        Scanner sc = new Scanner(new File(fileName));
+        V = sc.nextInt(); E = sc.nextInt();
 
         for(int i = 0; i < E; i++)  {
             int u = sc.nextInt();
@@ -21,7 +22,7 @@ public class Kruskal {
     }
 
     public static void setParents() {
-        for(int i = 1; i <= N; i++)
+        for(int i = 1; i <= V; i++)
             Parents[i] = i;
     }
 
@@ -41,7 +42,7 @@ public class Kruskal {
 
     public static int findParent(int u) {
         if (Parents[u] == u) return u;
-        return findParent(Parents[u]);
+        return Parents[u] = findParent(Parents[u]);
     }
 
     public static void unionParent(int u, int v) {
@@ -56,6 +57,8 @@ public class Kruskal {
         System.out.println("======================================");
         System.out.println("Union-Find로 Kruskal 구현");
         System.out.println("======================================");
+        //fileName = "20-2.data.txt"; 
+        fileName = "20-2.data2.txt";
         setUpEdges();
         setParents();
         sortEdges();
