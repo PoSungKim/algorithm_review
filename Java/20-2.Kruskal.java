@@ -18,7 +18,6 @@ public class Kruskal {
             int cost = sc.nextInt();
             Edges.add(new int[]{cost, u, v});
         }
-        
     }
 
     public static void setParents() {
