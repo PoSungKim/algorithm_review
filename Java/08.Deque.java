@@ -21,10 +21,10 @@ class Solution {
         }
         iter.forEachRemaining(x -> System.out.print(x + " ")) // 3 1 2 4 >> hasNext()와 forEachRemaining() 둘 중에 하나만 사용
       
-        Deq.removeFirst(1);  // [3, 1, 4]
-        Deq.removeLast(1);   // [3, 1]
-        Deq.pollFirst(1);    // [1]
-        Deq.pollLast(1);     // []
+        Deq.removeFirst();   // [1, 2, 4]
+        Deq.removeLast();    // [1, 2]
+        Deq.pollFirst();     // [2]
+        Deq.pollLast();      // []
       
         return A;
     }
