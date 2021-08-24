@@ -7,9 +7,9 @@ public class DynamicProgramming {
     // 점화식 : fn = fn-1 + fn-2;
     // O(2^n)
     public static long topDownFibo(long N) {
-        if (N == 1 || N == 2) return 1;
+        if (N == 1 || N == 2) return 1;                  // Base Case
         System.out.format("F(%d) ", N);
-        return topDownFibo(N - 1) + topDownFibo(N - 2);
+        return topDownFibo(N - 1) + topDownFibo(N - 2);  // Recursive Case
     }
 
     public static final int MAX_N = 10000;
