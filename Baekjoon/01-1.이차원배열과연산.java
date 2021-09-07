@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 public class Main{
     public static final int MAX_N = 100;
     public static int[][] Board = new int[MAX_N + 1][MAX_N + 1];
@@ -11,6 +12,7 @@ public class Main{
         R = sc.nextInt(); C = sc.nextInt(); K = sc.nextInt();
         for(int i = 1; i <= 3; i++) for(int j = 1; j <= 3; j++) Board[i][j] = sc.nextInt();   
     }
+
     public static void showBoard() {
         System.out.println();
         for(int i = 1; i <= RN; i++)  {
