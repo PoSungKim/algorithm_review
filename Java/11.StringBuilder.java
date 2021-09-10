@@ -13,6 +13,8 @@ class Solution {
         
         System.out.println(sb.charAt(sb.length()-1));   // a
         
+        System.out.println(sb.substring(0,4));          // Test
+
         System.out.println(sb.delete(0, 4));            // StringBuildera
         
         sb.setLength(6);                                // String
