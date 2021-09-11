@@ -23,14 +23,14 @@ class Solution {
 
         // 문자열 reverse나 비교는 String 사용 
         String str = "1212200";
-		String str2= "2212300";
-		
-		System.out.println(str.compareTo(str2));
-		
-		String revStr = new StringBuilder(str).reverse().toString();
-		String revStr2 = new StringBuilder(str2).reverse().toString();
-		
-		System.out.println(revStr2.compareTo(revStr));
+	String str2= "2212300";
+
+	System.out.println(str.compareTo(str2));
+
+	String revStr = new StringBuilder(str).reverse().toString();
+	String revStr2 = new StringBuilder(str2).reverse().toString();
+
+	System.out.println(revStr2.compareTo(revStr));
         
         return 0;
     }
