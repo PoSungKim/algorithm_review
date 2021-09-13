@@ -32,10 +32,15 @@ class Solution {
 
 	System.out.println(revStr2.compareTo(revStr));
         
-        char [] chArr =  str.toCharArray();
+        // char[] to String
+        char[] chArr =  str.toCharArray();
         String bStr = new String(chArr);
         String bStr2 = String.valueOf(chArr);
+        StringBuilder tmp = new StringBuilder();
+        for (char ch : chArr) 
+            tmp.append(ch);
 
+        String bstr3 = tmp.toString();
         return 0;
     }
 }
