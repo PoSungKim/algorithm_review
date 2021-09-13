@@ -39,8 +39,8 @@ class Solution {
         StringBuilder tmp = new StringBuilder();
         for (char ch : chArr) 
             tmp.append(ch);
-
         String bstr3 = tmp.toString();
+        
         return 0;
     }
 }
