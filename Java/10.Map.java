@@ -25,8 +25,14 @@ class Solution {
             System.out.print("{ " + e.getKey() + ", " + e.getValue() + " } ");
 
         System.out.println(HashMap.containsKey(1)); // True
+        System.out.println(HashMap.containsValue(1)); // True
+
         Set<Integer> KeySet = HashMap.keySet();
         List<Integer> ValueList = HashMap.values()
+        
+        HashMap.replace(0, 1000);
+        HashMap.remove(0);
+       
         return 0;
     }
 }
