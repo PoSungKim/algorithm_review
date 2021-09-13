@@ -24,6 +24,7 @@ class Solution {
         for(Map.Entry<Integer, Integer> e : List ) // {List, HashMap.entrySet(), TreeMap.entrySet(), LinkedHashMap.entrySet()}  
             System.out.print("{ " + e.getKey() + ", " + e.getValue() + " } ");
 
+        System.out.println(HashMap.containsKey(1)); // True
         return 0;
     }
 }
