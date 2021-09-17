@@ -46,10 +46,18 @@ class Solution {
         String bStr = new String(chArr);
         String bStr2 = String.valueOf(chArr);
         StringBuilder tmp = new StringBuilder();
-        for (char ch : chArr) 
-            tmp.append(ch);
+	    
+        for (char ch : chArr) tmp.append(ch);
         String bstr3 = tmp.toString();
 	    
-	
+	// lowercase()
+	String test = "test";
+	System.out.println(test.indexOf("te"));
+	System.out.println(test.toLowerCase());
+	System.out.println(test.toUpperCase());
+	for(char c : test) System.out.print(Character.toUpperCase(c));
+	    
+	String emptyString = " test    ";
+	System.out.println(emptyString.trim());
     }
 }
