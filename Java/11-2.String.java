@@ -27,26 +27,29 @@ class Solution {
 
       String test = "test";
       // 1) 포함
-      System.out.println(test.contains("tes"));           // true
-      System.out.println(test.indexOf("te"));             // 0
-      System.out.println(test.matches("^[t][e][s][t]$")); // true
+      System.out.println(test.contains("tes"));                             // true
+      System.out.println(test.indexOf("te"));                               // 0
+      System.out.println(test.matches("^[t][e][s][t]$"));                   // true
+      System.out.println(test.matches("^[t|e|s]{4,4}$"));                   // true  >> at least, no more than 4
+      System.out.println(test.matches("^[t|e|s]*$"));                       // true  >> * {0,}
+      System.out.println(test.matches("^[t|e|s]+$"));                       // true  >> + {1,}
+      System.out.println(test.matches("^[t|e|s]?$"));                       // false >> ? {0,1}
 	    
-      // 2) toLowerCase(), toUpperCase
+      // 2) replaceAll
+      System.out.println(test.replaceAll("^(t)(e)(s)(t)$", "$0"));          // $0 >> all  
+      System.out.println(test.replaceAll("^(t)(e)(s)(t)$", "$4-$3-$2-$1")); // t-s-e-t 
+	    
+      // 3) toLowerCase(), toUpperCase
       System.out.println(test.toLowerCase());
       System.out.println(test.toUpperCase());
       for(char c : test) System.out.print(Character.toUpperCase(c));
 
-      // 3) trim
+      // 4) trim
       String emptyString = " test    ";
       System.out.println(emptyString.trim());
 	    
-      // 4) startsWith, endsWith
+      // 5) startsWith, endsWith
       System.out.println(test.startsWith("te"));
       System.out.println(test.endsWith("st"));
-	    
-      // 5) replace
-      String strTest = "aaabbbvccacfgdracabtghd"; 
-      System.out.println( strTest.replace("ab","0") );      // aa0bbvccacfgdrac0tghd
-      System.out.println( strTest.replaceAll("[ab]","0") ); // 000000vcc0cfgdr0c00tghd   
     }
 }
