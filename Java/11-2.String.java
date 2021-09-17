@@ -20,27 +20,31 @@ class Solution {
       char[] chArr      = str.toCharArray();
       String bStr       = new String(chArr);
       String bStr2      = String.valueOf(chArr);
+	    
       StringBuilder tmp = new StringBuilder();
-
       for (char ch : chArr) tmp.append(ch);
       String bstr3 = tmp.toString();
 
-      // toLowerCase(), toUpperCase, trim
       String test = "test";
-      System.out.println(test.indexOf("te"));
+      // 1) 포함
+      System.out.println(test.contains("tes"));           // true
+      System.out.println(test.indexOf("te"));             // 0
+      System.out.println(test.matches("^[t][e][s][t]$")); // true
+	    
+      // 2) toLowerCase(), toUpperCase
       System.out.println(test.toLowerCase());
       System.out.println(test.toUpperCase());
       for(char c : test) System.out.print(Character.toUpperCase(c));
 
-      // trim
+      // 3) trim
       String emptyString = " test    ";
       System.out.println(emptyString.trim());
 	    
-      // startsWith, endsWith
+      // 4) startsWith, endsWith
       System.out.println(test.startsWith("te"));
       System.out.println(test.endsWith("st"));
 	    
-      // replace
+      // 5) replace
       String strTest = "aaabbbvccacfgdracabtghd"; 
       System.out.println( strTest.replace("ab","0") );      // aa0bbvccacfgdrac0tghd
       System.out.println( strTest.replaceAll("[ab]","0") ); // 000000vcc0cfgdr0c00tghd   
