@@ -1,5 +1,3 @@
-import java.util.*;
-
 class Solution {
     // 문자열 reverse나 비교는 String 사용
     public int String() {
@@ -13,15 +11,15 @@ class Solution {
 
       System.out.println(str.compareTo(str2));
 
-      String revStr  = new StringBuilder(str).reverse().toString();
-      String revStr2 = new StringBuilder(str2).reverse().toString();
+      String revStr     = new StringBuilder(str).reverse().toString();
+      String revStr2    = new StringBuilder(str2).reverse().toString();
 
       System.out.println(revStr2.compareTo(revStr));
         
       // char[] to String
-      char[] chArr =  str.toCharArray();
-      String bStr  = new String(chArr);
-      String bStr2 = String.valueOf(chArr);
+      char[] chArr      = str.toCharArray();
+      String bStr       = new String(chArr);
+      String bStr2      = String.valueOf(chArr);
       StringBuilder tmp = new StringBuilder();
 
       for (char ch : chArr) tmp.append(ch);
@@ -34,7 +32,17 @@ class Solution {
       System.out.println(test.toUpperCase());
       for(char c : test) System.out.print(Character.toUpperCase(c));
 
+      // trim
       String emptyString = " test    ";
       System.out.println(emptyString.trim());
+	    
+      // startsWith, endsWith
+      System.out.println(test.startsWith("te"));
+      System.out.println(test.endsWith("st"));
+	    
+      // replace
+      String strTest = "aaabbbvccacfgdracabtghd"; 
+      System.out.println( strTest.replace("ab","0") );      // aa0bbvccacfgdrac0tghd
+      System.out.println( strTest.replaceAll("[ab]","0") ); // 000000vcc0cfgdr0c00tghd   
     }
 }
