@@ -1,9 +1,9 @@
 import java.util.*;
 
 class Solution {
+    
+    // 문자열 수정 작업이 많으면 StringBuilder 사용
     public int StringBuilder() {
-        
-        // 문자열 수정 작업이 많으면 StringBuilder 사용
         StringBuilder sb = new StringBuilder("StringBuilder");
         
         System.out.println(sb.append("aa"));            // StringBuilderaa
@@ -23,9 +23,10 @@ class Solution {
         
         return 0;
     }
+    
+    // 문자열 reverse나 비교는 String 사용
     public int String() {
-	// https://mine-it-record.tistory.com/133
-        // 문자열 reverse나 비교는 String 사용 
+	// https://mine-it-record.tistory.com/133 
 	    
 	// ==           : 참조하는 주소 값 비교
 	// .equals()    : 참조하는 String 클래스의 값 비교
