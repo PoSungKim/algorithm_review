@@ -1,7 +1,7 @@
 import java.util.*;
 
 class Solution {
-    public int solution(int[] A) {
+    public int StringBuilder() {
         
         // 문자열 수정 작업이 많으면 StringBuilder 사용
         StringBuilder sb = new StringBuilder("StringBuilder");
@@ -20,8 +20,17 @@ class Solution {
         
         sb.setLength(6);                                // String
         System.out.println(sb);
-
+        
+        return 0;
+    }
+    public int String() {
+	// https://mine-it-record.tistory.com/133
         // 문자열 reverse나 비교는 String 사용 
+	    
+	// ==           : 참조하는 주소 값 비교
+	// .equals()    : 참조하는 String 클래스의 값 비교
+	// .compareTo() : 참조하는 String 클래스의 값 비교 (1) 길이 같다면, 다른 char의 차이값 리턴 (2) 길이가 다르다면, 길이의 차이 리턴
+	
         String str = "1212200";
 	String str2= "2212300";
 
@@ -40,7 +49,7 @@ class Solution {
         for (char ch : chArr) 
             tmp.append(ch);
         String bstr3 = tmp.toString();
-        
-        return 0;
+	    
+	
     }
 }
