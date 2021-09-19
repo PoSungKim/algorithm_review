@@ -30,8 +30,8 @@ class Solution {
         Set<Integer> KeySet = HashMap.keySet();
         List<Integer> ValueList = HashMap.values()
         
-        HashMap.replace(0, 1000);
-        HashMap.remove(0);
+        HashMap.replace(0, 1000); // key, new value
+        HashMap.remove(0);        // key
        
         return 0;
     }
