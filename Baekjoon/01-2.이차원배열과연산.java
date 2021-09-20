@@ -75,7 +75,7 @@ public class Main {
                         Board[idx++][i] = num.N;
                         Board[idx++][i] = num.cnt;
                     }
-                    R_N= Math.max(R_N, idx);
+                    R_N= Math.max(R, idx);
                     for(;idx < 100; idx++)
                         Board[idx][i] = 0;
                 }
