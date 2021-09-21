@@ -7,25 +7,11 @@ public class Main {
             this.amount = amount;
             this.cnt = cnt;
         }
-        @Override
-        public String toString(){
-            return String.format("(%s) ", this.amount);
-        }
     }
     static int[][] Dirs = new int[][] {{0, -1}, {-1, 0}, {0, 1}, {1, 0}}; //좌상우하
     static int[][] Dusts = new int[50][50];
     static int[][] Fresher = new int[2][2];
     static int R, C, T;
-
-    public static void check() {
-        System.out.println();
-        for(int i = 0; i < R; i++) {
-            for(int j = 0; j < C; j++) {
-                System.out.format("%2s ", Dusts[i][j]);
-            }
-            System.out.println();
-        }
-    }
 
     public static void main(String[] args){ 
         Scanner sc = new Scanner(System.in);
@@ -80,48 +66,42 @@ public class Main {
                 }
             }
 
-            //check();
-
             // 3. 이동
-            for(int j = Fresher[0][0] - 1; j > 0; j--){
+            for(int j = Fresher[0][0] - 1; j > 0; j--)
                 Dusts[j][0] = Dusts[j - 1][0];
-            }
-            for(int i = 0; i < C - 1; i++) {
+            
+            for(int i = 0; i < C - 1; i++) 
                 Dusts[0][i] = Dusts[0][i + 1];
-            }
-            for(int j = 0; j < Fresher[0][0]; j++) {
+            
+            for(int j = 0; j < Fresher[0][0]; j++) 
                 Dusts[j][C - 1] = Dusts[j + 1][C - 1];
-            }
-            for(int i = C - 1; i >= 2; i--) {
+            
+            for(int i = C - 1; i >= 2; i--) 
                 Dusts[Fresher[0][0]][i] = Dusts[Fresher[0][0]][i - 1]; 
-            }
+            
             Dusts[Fresher[0][0]][1] = 0;
 
-            for(int j = Fresher[1][0] + 1; j < R - 1; j++) {
+            for(int j = Fresher[1][0] + 1; j < R - 1; j++) 
                 Dusts[j][0] = Dusts[j + 1][0];
-            }
-            for(int i = 0; i < C - 1; i++) {
+            
+            for(int i = 0; i < C - 1; i++) 
                 Dusts[R - 1][i] = Dusts[R - 1][i + 1];
-            }
-            for(int j = R - 1; j > Fresher[1][0]; j--) {
+            
+            for(int j = R - 1; j > Fresher[1][0]; j--) 
                 Dusts[j][C - 1] = Dusts[j -1][C - 1];
-            }
-            for(int i = C - 1; i >= 2; i--) {
+            
+            for(int i = C - 1; i >= 2; i--) 
                 Dusts[Fresher[1][0]][i] = Dusts[Fresher[1][0]][i - 1];
-            }
+            
             Dusts[Fresher[1][0]][1] = 0;
-
-            //check();
         }
 
         int sum = 0;
-        for(int i = 0; i < R; i++) {
-            for(int j = 0; j < C; j++) {
-                if (Dusts[i][j] != -1) {
+        for(int i = 0; i < R; i++)
+            for(int j = 0; j < C; j++)
+                if (Dusts[i][j] != -1) 
                     sum += Dusts[i][j];
-                }
-            }
-        }
+        
         System.out.println(sum);
 
         return;
