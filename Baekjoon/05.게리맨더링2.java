@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Main {
-    static int[][] Map = new int[101][101];
+    static int[][] Map = new int[21][21];
     static int N;
 
     public static void main(String[] args) {
@@ -14,31 +14,26 @@ public class Main {
         int min_diff = 987654321;
         for(int y = 1; y <= N; y++) {
             for(int x = 1; x <= N; x++) {
-                for(int d1 = 1; d1 <= N; d1++) {
-                    for(int d2 = 1; d2 <= N; d2++) {
-                        if (!(x < x + d1 + d2 && x + d1 + d2 <= N && 1 <= y - d1 && y - d1 < y && y < y + d2 && y + d2 <= N)) break;
+                for(int d1 = 1; d1 < y; d1++) {
+                    for(int d2 = 1; x + d1 + d2 <= N && y + d2 <= N; d2++) {
                         
-                        int[][] Tmp = new int[101][101];
+                        int[][] Tmp = new int[N + 1][N + 1];
                         for(int i = 0; i <= d1; i++) {
                             Tmp[x + i][y - i] = 5;
+                            Tmp[x + d2 + i][y + d2 - i] = 5;
                         }
+
                         for(int i = 0; i <= d2; i++) {
                             Tmp[x + i][y + i] = 5;
-                        }
-                        for(int i = 0; i <= d2; i++){
                             Tmp[x + d1 + i][y - d1 + i] = 5;
-                        }
-                        for(int i = 0; i <= d1; i++){
-                            Tmp[x + d2 + i][y + d2 - i] = 5;
                         }
 
                         for(int i = 1; i <= N; i++) {
                             int cnt = 0;
                             int[] pos = new int[2];
                             for(int j = 1; j <= N; j++) {
-                                if (Tmp[i][j] == 5) {
+                                if (Tmp[i][j] == 5) 
                                     pos[cnt++] = j;
-                                }
                                 if (cnt == 2) {
                                     for(int k = pos[0] + 1; k < pos[1]; k++)
                                         Tmp[i][k] = 5;
@@ -47,47 +42,39 @@ public class Main {
                             }
                         }
 
-                        for(int r = 1; r < x + d1; r++) {
-                            for(int c = 1; c <= y; c++) {
-                                if (Tmp[r][c] == 5) continue;
-                                Tmp[r][c] = 1;
-                            }
-                        }
-
-                        for(int r = 1; r <= x + d2; r++) {
-                            for(int c = y + 1; c <= N; c++) {
-                                if (Tmp[r][c] == 5) continue;
-                                Tmp[r][c] = 2;
-                            }
-                        }
-                        
-                        for(int r = x + d1; r <= N; r++) {
-                            for(int c = 1; c < y - d1 + d2; c++) {
-                                if (Tmp[r][c] == 5) continue;
-                                Tmp[r][c] = 3;
-                            }
-                        }
-
-                        for(int r = x + d2 + 1; r <= N; r++) {
-                            for(int c = y - d1 + d2; c <= N; c++) {
-                                if (Tmp[r][c] == 5) continue;
-                                Tmp[r][c] = 4;
-                            }
-                        }
-                        
                         int[] sum = new int[6];
-                        for(int i = 1; i <= N; i++){
-                            for(int j = 1; j <= N; j++) {
-                                sum[Tmp[i][j]] += Map[i][j];
+                        for(int r = 1; r <= N; r++) {
+                            for(int c = 1; c <= N; c++) {
+                                if (Tmp[r][c] == 5) {
+                                    sum[5] += Map[r][c];
+                                    continue;
+                                }
+                                if (r < x + d1 && c <= y) {
+                                    Tmp[r][c] = 1;
+                                    sum[1] += Map[r][c];
+                                }
+                                if (r <= x + d2 && y + 1 <= c) {
+                                    Tmp[r][c] = 2;
+                                    sum[2] += Map[r][c];
+                                }
+                                if (x + d1 <= r && c < y - d1 + d2) {
+                                    Tmp[r][c] = 3;
+                                    sum[3] += Map[r][c];
+                                }
+                                if (x + d2 + 1 <= r && y - d1 + d2 <= c) {
+                                    Tmp[r][c] = 4;
+                                    sum[4] += Map[r][c];
+                                }
                             }
                         }
                         
-                        List<Integer> List = new ArrayList<>();
-                        for(int i = 1; i <= 5; i++) 
-                            List.add(sum[i]);
+                        int max_s = -1, min_s = 987654321;
+                        for(int i = 1; i <= 5; i++) {
+                            min_s = Math.min(min_s, sum[i]);
+                            max_s = Math.max(max_s, sum[i]);
+                        }
                         
-                        min_diff = Math.min(min_diff, Collections.max(List) - Collections.min(List));
-                        
+                        min_diff = Math.min(min_diff, max_s - min_s);
                     }
                 }
             }
