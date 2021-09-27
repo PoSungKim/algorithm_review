@@ -9,7 +9,7 @@ public class Main {
         public int s, d, z;
         Shark(int s, int d, int z) {
             this.s = s; // 속력
-            this.d = d; // 1: 위, 2: 아래, 3: 오른쪽, 4: 왼쪽
+            this.d = d; // 0: 위, 1: 아래, 2: 오른쪽, 3: 왼쪽
             this.z = z; // 크기
         }
     }
