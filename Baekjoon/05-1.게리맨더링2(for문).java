@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Main {
     static int[][] Map = new int[21][21];
+    static int[][] Tmp = new int[21][21];
     static int N;
 
     public static void main(String[] args) {
@@ -16,8 +17,9 @@ public class Main {
             for(int x = 1; x <= N; x++) {
                 for(int d1 = 1; d1 < y; d1++) {
                     for(int d2 = 1; x + d1 + d2 <= N && y + d2 <= N; d2++) {
-                        
-                        int[][] Tmp = new int[N + 1][N + 1];
+                        // int[][] Tmp = new int[21][21]; 처럼 for문 내에서 계속 new하면 메모리 사용량이 68% 정도 상승한다 (비효율적인 메모리 사용)
+                        for(int i = 0; i <= 20; i++) Arrays.fill(Tmp[i], 0);
+
                         for(int i = 0; i <= d1; i++) {
                             Tmp[x + i][y - i] = 5;
                             Tmp[x + d2 + i][y + d2 - i] = 5;
@@ -27,7 +29,7 @@ public class Main {
                             Tmp[x + i][y + i] = 5;
                             Tmp[x + d1 + i][y - d1 + i] = 5;
                         }
-
+                        
                         for(int i = 1; i <= N; i++) {
                             int cnt = 0;
                             int[] pos = new int[2];
