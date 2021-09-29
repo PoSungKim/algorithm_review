@@ -59,10 +59,10 @@ public class Main {
         int round = 0;
 
         do {
-            for(int i = 0; i < N; i++) Arrays.fill(Visited[i], 0);
+            for(int i = 0; i < N; i++) for(int j = 0; j < N; j++) Visited[i][j] = 0;
             flag = false; int move = 0;
             
-            for(int i = 0 ; i < N; i++) 
+            for(int i = 0 ; i < N; i++) {
                 for(int j = 0; j < N; j++) {
                     if (Visited[i][j] == 0) {
                         ones = 0;
@@ -70,9 +70,12 @@ public class Main {
                         if (ones > 1) {
                             count(i, j, sum / ones);
                             move++;
-                        } 
+                        } else {
+                            Visited[i][j] = 2;
+                        }
                     }
                 }
+            }
 
             if (move > 0) {
                 flag = true;
