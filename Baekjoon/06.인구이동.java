@@ -12,7 +12,7 @@ public class Main {
         
         Visited[i][j] = 2;
         Map[i][j] = value;
-
+        
         for(int dir = 0; dir < 4; dir++) {
             int n_i = i + Dirs[dir][0], n_j = j + Dirs[dir][1];
             if (n_i < 0 || N <= n_i || n_j < 0 || N <= n_j) continue;
