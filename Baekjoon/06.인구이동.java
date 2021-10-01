@@ -71,6 +71,7 @@ public class Main {
                             count(i, j, sum / ones);
                             move++;
                         } else {
+                            // 인구 이동이 없어도 처리됌
                             Visited[i][j] = 2;
                         }
                     }
