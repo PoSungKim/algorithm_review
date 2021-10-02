@@ -53,6 +53,7 @@ public class Main {
 
     public static void spring() {
         Queue<Tree> Tmp = new LinkedList<>();
+
         while(!PQ.isEmpty()) {
             Tree curTree = PQ.poll();
             if (Map[curTree.y][curTree.x] >= curTree.age) {
@@ -62,6 +63,7 @@ public class Main {
                 Q.offer(curTree);
             }
         }
+
         PQ.addAll(Tmp);
         return;
     }
