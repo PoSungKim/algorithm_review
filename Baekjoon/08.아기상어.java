@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 
 public class Main {
     public static class Fish {
@@ -74,18 +75,22 @@ public class Main {
         return Shark.move - 1;
     }
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        N = sc.nextInt();
+    public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer stk = new StringTokenizer(br.readLine());
+        N = Integer.parseInt(stk.nextToken());
         
-        for(int i = 0; i < N; i++) 
+        for(int i = 0; i < N; i++)  {
+            stk = new StringTokenizer(br.readLine());
             for(int j = 0; j < N; j++) {
-                Map[i][j] = sc.nextInt();
+                Map[i][j] = Integer.parseInt(stk.nextToken());
                 if (Map[i][j] == 9) {
                     Shark = new Fish(i, j, 1, 2, 0);
                     Map[i][j] = -1;
                 }
             }
+        }
 
         System.out.println(solve());
 
