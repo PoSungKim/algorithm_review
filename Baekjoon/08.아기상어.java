@@ -19,7 +19,7 @@ public class Main {
     public static int N, M;
     public static Fish Shark = new Fish(0, 0, 0, 2, 0);
     public static List<Fish> List = new ArrayList<>();
-    
+
     public static int solve() {
         int time = 0;
 
@@ -32,7 +32,7 @@ public class Main {
 
             while(!Queue.isEmpty()) {
                 Fish curShark = Queue.poll();
-
+                // 조건문의 길이를 줄이기 위해, 현재 상어가 있는 장소는 -1 값을 갖게 initialize함
                 if (Map[curShark.y][curShark.x] > 0 && Map[curShark.y][curShark.x] < curShark.size) {
                     if (List.isEmpty()) {
                         List.add(curShark);
@@ -70,7 +70,6 @@ public class Main {
                 Shark.size++;
                 Shark.total = 0;
             }
-            
         }
 
         return Shark.move - 1;
