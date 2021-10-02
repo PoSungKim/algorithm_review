@@ -1,0 +1,109 @@
+import java.util.*;
+
+public class Main {
+    public static class Fish {
+        int y, x, move, size, total;
+        public Fish (int y, int x, int move, int size, int total) {
+            this.y = y;
+            this.x = x;
+            this.move = move;
+            this.size = size;
+            this.total = total;
+        }
+        @Override
+        public String toString() {
+            return String.format("(%d, %d, %d, %d, %d)", y, x, move, size, total);
+        }
+    }
+
+    public static int[][] Dirs = new int[][] { {-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    public static int[][] Visited = new int[20][20];
+    public static Queue<Fish> Queue = new LinkedList<>();
+    public static int[][] Map = new int[20][20];
+    public static int N, M;
+    public static Fish Shark = new Fish(0, 0, 0, 2, 0);
+    public static List<Fish> List = new ArrayList<>();
+
+    public static void print() {
+        System.out.println();
+        for(int i = 0 ; i < N; i ++) {
+            System.out.println();
+            for(int j = 0; j < N; j++) {
+                System.out.format("%3d", Visited[i][j]);
+            }
+            System.out.println();
+        }
+    }
+    public static int solve() {
+        int time = 0;
+
+        while(true) {
+            for(int i = 0 ; i < N; i ++) for(int j = 0; j < N; j++) Visited[i][j] = 0;
+            List.clear();
+
+            Queue.offer(Shark);
+            Visited[Shark.y][Shark.x] = Shark.move;
+
+            while(!Queue.isEmpty()) {
+                Fish curShark = Queue.poll();
+
+                if (Map[curShark.y][curShark.x] > 0 && Map[curShark.y][curShark.x] < curShark.size) {
+                    if (List.isEmpty()) {
+                        List.add(curShark);
+                    } else {
+                        if (List.get(0).move < curShark.move) continue;
+                        List.add(curShark);
+                    }
+                }
+
+                for(int dir = 0; dir < 4; dir++) {
+                    int n_y = curShark.y + Dirs[dir][0];
+                    int n_x = curShark.x + Dirs[dir][1];
+                    if (n_y < 0 || n_x < 0 || n_y >= N || n_x >= N) continue;
+                    if (Visited[n_y][n_x] > 0) continue;
+                    if (Map[n_y][n_x] > curShark.size) continue;
+
+                    Fish newShark = new Fish(n_y, n_x, curShark.move + 1, curShark.size, curShark.total);
+                    Visited[n_y][n_x] = newShark.move;
+                    Queue.offer(newShark);
+                }
+            }
+
+            if (List.isEmpty() && Queue.isEmpty()) break;
+
+            Map[Shark.y][Shark.x] = 0;
+
+            Collections.sort(List, (a, b)-> {
+                if (a.y == b.y) return a.x - b.x;
+                return a.y - b.y;
+            });
+            Shark = List.get(0);
+            Map[Shark.y][Shark.x] = -1;
+            Shark.total++;
+            if (Shark.total == Shark.size) {
+                Shark.size++;
+                Shark.total = 0;
+            }
+            
+        }
+
+        return Shark.move - 1;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        N = sc.nextInt();
+        for(int i = 0; i < N; i++) 
+            for(int j = 0; j < N; j++) {
+                Map[i][j] = sc.nextInt();
+                if (Map[i][j] == 9) {
+                    Shark = new Fish(i, j, 1, 2, 0);
+                    Map[i][j] = -1;
+                }
+            }
+
+        System.out.println(solve());
+
+        return;
+    }
+}
