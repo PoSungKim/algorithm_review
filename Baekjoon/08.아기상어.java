@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-    public static class Fish {
+    public static class Fish implements Comparable<Fish>{
         int y, x, move, size, total;
         public Fish (int y, int x, int move, int size, int total) {
             this.y = y;
@@ -11,13 +11,15 @@ public class Main {
             this.size = size;
             this.total = total;
         }
+        @Override
+        public int compareTo(Fish b) {
+            if (this.y == b.y) return this.x - b.x;
+            return this.y - b.y;
+        }
     }
 
     public static int[][] Dirs = new int[][] { {-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-    public static PriorityQueue<Fish> List = new PriorityQueue<>((a, b)-> {
-        if (a.y == b.y) return a.x - b.x;
-        return a.y - b.y;
-    });
+    public static PriorityQueue<Fish> List = new PriorityQueue<>();
     public static boolean[][] Visited = new boolean[20][20];
     public static Queue<Fish> Queue = new LinkedList<>();
     public static Fish Shark = new Fish(0, 0, 0, 2, 0);
