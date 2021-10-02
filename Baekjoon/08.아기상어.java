@@ -12,6 +12,7 @@ public class Main {
             this.total = total;
         }
         @Override
+        // 자신이 Left, Parameter가 Right
         public int compareTo(Fish b) {
             if (this.y == b.y) return this.x - b.x;
             return this.y - b.y;
