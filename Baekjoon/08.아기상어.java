@@ -18,14 +18,17 @@ public class Main {
     public static int[][] Map = new int[20][20];
     public static int N, M;
     public static Fish Shark = new Fish(0, 0, 0, 2, 0);
-    public static List<Fish> List = new ArrayList<>();
+    public static PriorityQueue<Fish> List = new PriorityQueue<>((a, b)-> {
+        if (a.y == b.y) return a.x - b.x;
+        return a.y - b.y;
+    });
 
     public static int solve() {
-        int time = 0;
 
         while(true) {
             for(int i = 0 ; i < N; i ++) for(int j = 0; j < N; j++) Visited[i][j] = 0;
             List.clear();
+            Queue.clear();
 
             Queue.offer(Shark);
             Visited[Shark.y][Shark.x] = Shark.move;
@@ -35,10 +38,10 @@ public class Main {
                 // 조건문의 길이를 줄이기 위해, 현재 상어가 있는 장소는 -1 값을 갖게 initialize함
                 if (Map[curShark.y][curShark.x] > 0 && Map[curShark.y][curShark.x] < curShark.size) {
                     if (List.isEmpty()) {
-                        List.add(curShark);
+                        List.offer(curShark);
                     } else {
-                        if (List.get(0).move < curShark.move) continue;
-                        List.add(curShark);
+                        if (List.peek().move < curShark.move) break;
+                        List.offer(curShark);
                     }
                 }
 
@@ -55,15 +58,11 @@ public class Main {
                 }
             }
 
-            if (List.isEmpty() && Queue.isEmpty()) break;
+            if (List.isEmpty()) break;
 
             Map[Shark.y][Shark.x] = 0;
 
-            Collections.sort(List, (a, b)-> {
-                if (a.y == b.y) return a.x - b.x;
-                return a.y - b.y;
-            });
-            Shark = List.get(0);
+            Shark = List.peek();
             Map[Shark.y][Shark.x] = -1;
             Shark.total++;
             if (Shark.total == Shark.size) {
@@ -78,6 +77,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         N = sc.nextInt();
+        
         for(int i = 0; i < N; i++) 
             for(int j = 0; j < N; j++) {
                 Map[i][j] = sc.nextInt();
