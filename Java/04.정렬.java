@@ -31,6 +31,9 @@ class Solution {
         Arrays.sort(objArr, new Comparator<Integer>(){
             @Override
             public int compare(Integer o1, Integer o2) {
+                // 왼쪽 o1이 먼저 앞으로 오려면 return -1;
+                // 오른쪽 02가 먼저 앞으로 오려면 return +;
+                // 즉, 왼쪽은 -1 오른쪽은 +1 같으면 0
                 return o2 - o1;
             }
         });
