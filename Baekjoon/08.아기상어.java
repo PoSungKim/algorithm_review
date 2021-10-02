@@ -13,25 +13,25 @@ public class Main {
     }
 
     public static int[][] Dirs = new int[][] { {-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-    public static int[][] Visited = new int[20][20];
-    public static Queue<Fish> Queue = new LinkedList<>();
-    public static int[][] Map = new int[20][20];
-    public static int N, M;
-    public static Fish Shark = new Fish(0, 0, 0, 2, 0);
     public static PriorityQueue<Fish> List = new PriorityQueue<>((a, b)-> {
         if (a.y == b.y) return a.x - b.x;
         return a.y - b.y;
     });
+    public static boolean[][] Visited = new boolean[20][20];
+    public static Queue<Fish> Queue = new LinkedList<>();
+    public static Fish Shark = new Fish(0, 0, 0, 2, 0);
+    public static int[][] Map = new int[20][20];
+    public static int N, M;
 
     public static int solve() {
 
         while(true) {
-            for(int i = 0 ; i < N; i ++) for(int j = 0; j < N; j++) Visited[i][j] = 0;
+            for(int i = 0 ; i < N; i ++) for(int j = 0; j < N; j++) Visited[i][j] = false;
             List.clear();
             Queue.clear();
 
             Queue.offer(Shark);
-            Visited[Shark.y][Shark.x] = Shark.move;
+            Visited[Shark.y][Shark.x] = true;
 
             while(!Queue.isEmpty()) {
                 Fish curShark = Queue.poll();
@@ -49,11 +49,11 @@ public class Main {
                     int n_y = curShark.y + Dirs[dir][0];
                     int n_x = curShark.x + Dirs[dir][1];
                     if (n_y < 0 || n_x < 0 || n_y >= N || n_x >= N) continue;
-                    if (Visited[n_y][n_x] > 0) continue;
+                    if (Visited[n_y][n_x]) continue;
                     if (Map[n_y][n_x] > curShark.size) continue;
 
                     Fish newShark = new Fish(n_y, n_x, curShark.move + 1, curShark.size, curShark.total);
-                    Visited[n_y][n_x] = newShark.move;
+                    Visited[n_y][n_x] = true;
                     Queue.offer(newShark);
                 }
             }
