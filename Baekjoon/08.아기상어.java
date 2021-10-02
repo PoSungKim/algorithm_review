@@ -10,10 +10,6 @@ public class Main {
             this.size = size;
             this.total = total;
         }
-        @Override
-        public String toString() {
-            return String.format("(%d, %d, %d, %d, %d)", y, x, move, size, total);
-        }
     }
 
     public static int[][] Dirs = new int[][] { {-1, 0}, {1, 0}, {0, -1}, {0, 1}};
@@ -23,17 +19,7 @@ public class Main {
     public static int N, M;
     public static Fish Shark = new Fish(0, 0, 0, 2, 0);
     public static List<Fish> List = new ArrayList<>();
-
-    public static void print() {
-        System.out.println();
-        for(int i = 0 ; i < N; i ++) {
-            System.out.println();
-            for(int j = 0; j < N; j++) {
-                System.out.format("%3d", Visited[i][j]);
-            }
-            System.out.println();
-        }
-    }
+    
     public static int solve() {
         int time = 0;
 
