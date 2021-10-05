@@ -48,7 +48,7 @@ public class Main {
     public static final int INF = 987654321;
     public static int min_space = INF;
     public static int Board[][];
-    public static int Order[];
+    public static int Order[]; 
     public static int N, M, K;
 
     public static void solve() {
