@@ -1,5 +1,6 @@
 import java.util.*;
 
+// 개인적으로 가장 뿌듯한 문제
 public class Main {
 
     public static class Point {
