@@ -1,6 +1,6 @@
 class Solution {
     // 문자열 IndexOf나 비교는 String 사용
-   
+    // reverse는 StringBuilder 사용 
     public int String() {
       // https://mine-it-record.tistory.com/133 
 	    
