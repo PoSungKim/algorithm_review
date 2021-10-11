@@ -3,15 +3,12 @@ import java.util.*;
 
 public class Main {
     
-    public static boolean[][][] Board = new boolean[11][31][2];
-    public static List<Integer> List = new ArrayList<>();
+    public static boolean[][][] Board = new boolean[31][11][2];
     public static final int INF = 987654321;
     public static int N, M, H, ans = INF;
     public static boolean found_answer = false;
     
     public static boolean solve() {
-        List.clear();
-
         for(int c = 1; c <= N; c++) {
             int cur_pos = c;
             for(int r = 1; r <= H; r++) 
@@ -19,30 +16,13 @@ public class Main {
                     cur_pos++;
                 else if (0 < cur_pos && Board[r][cur_pos - 1][1] && Board[r][cur_pos][0])
                     cur_pos--;
-            
-            List.add(cur_pos);
+            if (cur_pos != c) return false;
         }
-        for(int c = 0; c < N; c++) 
-            if (List.get(c) != c + 1)
-                return false;
-        
         return true;
-    }
-
-    public static void print() {
-        System.out.println("=====================================");
-        for(int i = 1; i <= H; i++) {
-            for(int j = 1; j <= N; j++) {
-                System.out.format("%6s ", Board[i][j]);
-            }
-            System.out.println();
-        }
-        System.out.println("=====================================");
     }
     
     public static void comb(int y, int x, int cnt) {
-        if (found_answer && ans < cnt) return;
-        if (cnt > 3) return;
+        if (cnt > 3 || y * 10 + x == N * H) return;
         if (solve()) {
             ans =  Math.min(ans, cnt);
             found_answer = true;
