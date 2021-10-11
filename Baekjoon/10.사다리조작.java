@@ -36,7 +36,7 @@ public class Main {
             }
         }
     }
-
+    // 2차원 배열도 1차원 배열과 같다 >> pos를 +1씩 하면서 /, % 연산으로 올바른 position을 찾을 수 있다
     public static int comb(int pos, int cnt) {
         //왼 : 3개를 골랐을 때
         //오 : 3개 미만을 골랐을 때
