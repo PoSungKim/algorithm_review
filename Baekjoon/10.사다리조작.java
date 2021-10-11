@@ -11,9 +11,9 @@ public class Main {
         for(int c = 0; c < N; c++) {
             int cur_pos = c;
             for(int r = 0; r < H; r++) 
-                if (cur_pos < N - 1 && Board[r][cur_pos][1] && Board[r][cur_pos + 1][0]) 
+                if (Board[r][cur_pos][1]) 
                     cur_pos++;
-                else if (0 < cur_pos && Board[r][cur_pos - 1][1] && Board[r][cur_pos][0])
+                else if (Board[r][cur_pos][0])
                     cur_pos--;
 
             if (cur_pos != c) return false;
