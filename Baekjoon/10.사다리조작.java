@@ -22,7 +22,7 @@ public class Main {
     }
     
     public static void comb2(int y, int x, int cnt) {
-        if (cnt > 3 || y * N + x == N * H) return;
+        if (cnt > 3) return;
         if (is_okay()) ans =  Math.min(ans, cnt);
         
         // 첫 i 값이 y이기 때문에, 해당 케이스에서만 j 값이 x부터 시작
@@ -33,7 +33,7 @@ public class Main {
             for(int j = (y == i) ? x : 1; j <= N; j++) {
                 if (j < N && !Board[i][j][1] && !Board[i][j + 1][0]) {
                     Board[i][j][1] = Board[i][j + 1][0] = true;
-                    comb2(i, j, cnt + 1);
+                    comb2(i, j + 2, cnt + 1);
                     Board[i][j][1] = Board[i][j + 1][0] = false;
                 }
             }
