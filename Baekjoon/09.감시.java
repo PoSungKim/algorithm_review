@@ -32,7 +32,7 @@ public class Main {
             }
             return false;
         }
-    }
+    } 
 
     public static int Dirs[][][] = new int[][][] {{{0, 1}}, {{0, -1}, {0, 1}}, {{-1, 0}, {0, 1}}, {{0, -1}, {1, 0}, {0, 1}}, {{0, 1}, {1, 0}, {0, -1}, {-1, 0}}};
     public static Map<Direction, int[]> Map = new HashMap<>(){
@@ -42,7 +42,7 @@ public class Main {
             put(new Direction(0, -1), new int[] {-1, 1});
             put(new Direction(-1, 0), new int[] {1, 1});
         }
-    };
+    }; 
     
     public static List<Point> List = new ArrayList<>();
     public static final int INF = 987654321;
@@ -62,8 +62,6 @@ public class Main {
             for(int j = 0; j < CCTV.dir.length; j++) {
                 int n_y_dir = CCTV.dir[j][0];
                 int n_x_dir = CCTV.dir[j][1];
-                int cur_y = CCTV.y;
-                int cur_x = CCTV.x;
                 for(int i = 0; i <= Order[curPoint]; i++) {
                     //System.out.format("(%d, %d)\n", n_y_dir, n_x_dir);
                     int[] change_dir = Map.get(new Direction(n_y_dir, n_x_dir));
@@ -71,6 +69,8 @@ public class Main {
                     n_y_dir = n_y_dir + change_dir[0];
                     n_x_dir = n_x_dir + change_dir[1];
                 }
+                int cur_y = CCTV.y;
+                int cur_x = CCTV.x;
                 while(true) {
                     cur_y = cur_y + n_y_dir;
                     cur_x = cur_x + n_x_dir;
@@ -83,15 +83,11 @@ public class Main {
         }
 
         int cnt = 0;
-        for(int k = 0 ; k <  N; k++)  {
-           // System.out.println();
-            for( int j = 0; j < M; j++) {
-                //System.out.format("%2d", Copied_Board[k][j]);
+        for(int k = 0 ; k <  N; k++)  
+            for( int j = 0; j < M; j++) 
                 if (Copied_Board[k][j] == 0)
                     cnt++;
-            }
-        }
-        //System.out.println();
+                    
         min_space = Math.min(min_space, cnt);
         
         return;
@@ -101,7 +97,6 @@ public class Main {
     public static void comb(int pos, int size) {
 
         if (pos == size) {
-            //System.out.println(Arrays.toString(Order));
             solve();
             return;
         }
@@ -125,7 +120,7 @@ public class Main {
                         curDir[k] = Dirs[Board[i][j] - 1][k];
                     List.add(new Point(i, j, Board[i][j], curDir));
                 }
-            } 
+            }
         }
         Order = new int[List.size()];
         comb(0, List.size());
