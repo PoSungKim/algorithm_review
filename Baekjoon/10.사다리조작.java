@@ -39,7 +39,7 @@ public class Main {
 
     public static int comb(int pos, int cnt) {
         //왼 : 3개를 골랐을 때
-        //오 : 3개 이하를 골랐을 때
+        //오 : 3개 미만을 골랐을 때
         if (cnt == 3 || pos >= N * H) {
             if (is_okay()) return cnt;
             return INF;
