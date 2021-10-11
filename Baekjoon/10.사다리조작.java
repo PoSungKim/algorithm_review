@@ -6,7 +6,6 @@ public class Main {
     public static boolean[][][] Board = new boolean[31][11][2];
     public static final int INF = 987654321;
     public static int N, M, H, ans = INF;
-    public static boolean found_answer = false;
     
     public static boolean solve() {
         for(int c = 1; c <= N; c++) {
@@ -16,6 +15,7 @@ public class Main {
                     cur_pos++;
                 else if (0 < cur_pos && Board[r][cur_pos - 1][1] && Board[r][cur_pos][0])
                     cur_pos--;
+
             if (cur_pos != c) return false;
         }
         return true;
@@ -23,10 +23,7 @@ public class Main {
     
     public static void comb(int y, int x, int cnt) {
         if (cnt > 3 || y * 10 + x == N * H) return;
-        if (solve()) {
-            ans =  Math.min(ans, cnt);
-            found_answer = true;
-        }
+        if (solve()) ans =  Math.min(ans, cnt);
         
         for(int i = 1; i <= H; i++) {
             for(int j = 1; j <= N; j++) {
@@ -50,6 +47,6 @@ public class Main {
             Board[a][b][1] = Board[a][b + 1][0] = true;
         }
         comb(0, 0, 0);
-        System.out.println(found_answer? ans > 3? -1 : ans : -1);
+        System.out.println(ans > 3? -1 : ans);
     }
 }
