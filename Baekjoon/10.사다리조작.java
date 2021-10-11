@@ -25,9 +25,12 @@ public class Main {
         if (cnt > 3 || y * N + x == N * H) return;
         if (is_okay()) ans =  Math.min(ans, cnt);
         
-        for(int i = 1; i <= H; i++) {
-            for(int j = 1; j <= N; j++) {
-                if (y * N + x > i * N + j) continue;
+        // 첫 i 값이 y이기 때문에, 해당 케이스에서만 j 값이 x부터 시작
+        // i가 y값일 때의 Iteration이 다 돌면, j는 1부터 돌아도 무방한데, 
+        // 이것도 결국에는 2중 for문 Iteration을 발생시키니 비효율적!
+        // comb()함수처럼 int pos의 값을 ++ 하면서 %, / 연사으로 정확한 지점에 대한 연산만 진행하는게 효율적
+        for(int i = y; i <= H; i++) {
+            for(int j = (y == i) ? x : 1; j <= N; j++) {
                 if (j < N && !Board[i][j][1] && !Board[i][j + 1][0]) {
                     Board[i][j][1] = Board[i][j + 1][0] = true;
                     comb2(i, j, cnt + 1);
