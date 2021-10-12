@@ -5,19 +5,8 @@ public class Main {
     public static int[][] Board = new int[21][21];
     public static int N;
 
-    public static void print(int[][] Board) {
-        System.out.println();
-        for(int r = 0; r < N; r++) {
-            for(int c = 0; c < N; c++) {
-                System.out.format("%3s", Board[r][c]);
-            }
-            System.out.println();
-        }
-    }
-
     public static int perm(int[][] Board, int dir, int cnt) {
         int[][] New_Board = deep_copy(Board);
-        //print(New_Board);
         boolean[][] Visited = new boolean[21][21];
         if (cnt == 5) {
             int max_v = -1;
