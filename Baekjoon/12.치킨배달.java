@@ -25,7 +25,7 @@ public class Main {
 
     public static int comb() {
         int min_d = INF;
-        for(int i = 1 ; i < (1 << Map.get(2).size()); i++) {
+        for(int i = 1; i < (1 << Map.get(2).size()); i++) {
             if (Integer.bitCount(i) > M ) continue;
             int sum = 0;
             for(Point House : Map.get(1)) {
