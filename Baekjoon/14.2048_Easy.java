@@ -1,7 +1,6 @@
 import java.util.*;
 
 public class Main {
-    public static int[][] Dir = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
     public static int[][] Board = new int[21][21];
     public static int N;
 
