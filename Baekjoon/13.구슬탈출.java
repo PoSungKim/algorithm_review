@@ -38,21 +38,21 @@ public class Main {
         N = sc.nextInt(); M = sc.nextInt();
         // Scanner에서는 char을 인식해서 가져오는 Method를 제공하지 않기 때문에
         // next()로 String 값을 가져온 뒤에 toCharArray()로 변환해서 넣어주면 효율적으로 처리 가능
-        Balls Start_Ball = new Balls(0,0,0,0,0);
+        Balls Start_Balls = new Balls(0,0,0,0,0);
         for(int i = 0; i < N; i++) {
             Board[i] = sc.next().toCharArray();
             for(int j = 0; j < M; j++) {
                 if (Board[i][j] == 'R') {
-                    Start_Ball.r_y = i;
-                    Start_Ball.r_x = j;
+                    Start_Balls.r_y = i;
+                    Start_Balls.r_x = j;
                 } else if (Board[i][j] == 'B') {
-                    Start_Ball.b_y = i;
-                    Start_Ball.b_x = j;
+                    Start_Balls.b_y = i;
+                    Start_Balls.b_x = j;
                 }
             }
         }
-        System.out.println(Start_Ball);
-        Queue.offer(Start_Ball);
+        System.out.println(Start_Balls);
+        Queue.offer(Start_Balls);
         System.out.println(BFS());
     }
 }
