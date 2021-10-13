@@ -77,6 +77,7 @@ public class Main {
         for(int i = 0; i < K; i++) Board[sc.nextInt()][sc.nextInt()] = true;
         L = sc.nextInt();
         // 방향 정보
+        // String.equals() >> String도 객체이기 때문에, Heap Address를 비교하지 않게 조심
         for(int i = 0; i < L; i++) Queue.offer(new int[]{sc.nextInt(), (sc.next().equals("L")) ? 0 : 1});
         System.out.println(solve());
     }
