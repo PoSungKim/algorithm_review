@@ -34,6 +34,8 @@ public class Main {
 
     public static boolean is_not_okay(int c_y, int c_x){
         if ( c_y <= 0 || N < c_y  || c_x <= 0 || N < c_x ) return true;
+        // Arrays.equals() >> deep comparison 
+        // a.equals(b)     >> shallow comparison
         for(int[] Body : Deque) if (Arrays.equals(Body, new int[]{c_y, c_x})) return true;
         
         return false;
