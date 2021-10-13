@@ -31,10 +31,6 @@ public class Main {
     public static Queue<int[]> Queue = new LinkedList<>();
     public static Deque<int[]> Deque = new ArrayDeque<>();
     public static int N, K, L;
-    
-    public static int find_my_dir(int x) {
-        return x < 0 ? x + 4 : x % 4;
-    }
 
     public static boolean is_not_okay(int c_y, int c_x){
         if ( c_y <= 0 || N < c_y  || c_x <= 0 || N < c_x ) return true;
