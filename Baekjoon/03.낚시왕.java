@@ -16,6 +16,7 @@ public class Main {
 
     public static int solve() {
         int sum = 0;
+        // Deep Copy
         Shark[][] backup = new Shark[100][100];
         for(int i = 0; i < C; i++) {
             for(int j = 0; j < R; j++) {
