@@ -11,16 +11,6 @@ public class Main {
     }
     public static int[][] Dirs = new int[][]{{-1, 0}, {-1, -1}, {0, -1}, {1, -1}, {1, 0}, {1, 1}, {0, 1}, {-1, 1}};
     public static int ans = 0;
-    
-    public static void print(int[][] Board) {
-        System.out.println();
-        for(int i = 0; i < 4; i++) {
-            for(int j = 0; j < 4; j++){
-                System.out.format("%2s ", Board[i][j]);
-            }
-            System.out.println();
-        }
-    }
 
     public static int[][] copyBoard(int[][] Board){
         int[][] tmpBoard = new int[4][4];
@@ -68,14 +58,12 @@ public class Main {
             int cDir = tmpFish[i].dir;
 
             int nDir = cDir;
-            int nY   = cY;
-            int nX   = cX;
-            for(int turn = 0; turn < 8; turn++) {
-                nDir = (cDir + turn) % 8;
+            int nY   = cY + Dirs[nDir][0];
+            int nX   = cX + Dirs[nDir][1];
+            while(nY < 0 || 3 < nY || nX < 0 || 3 < nX || (nY == shark_y && nX == shark_x)) {
+                nDir = (nDir + 1) % 8;
                 nY   = cY + Dirs[nDir][0];
                 nX   = cX + Dirs[nDir][1];   
-                if (!(nY < 0 || 3 < nY || nX < 0 || 3 < nX || (nY == shark_y && nX == shark_x))) 
-                    break;   
             }
 
             if (tmpBoard[nY][nX] != -1) {
@@ -97,7 +85,6 @@ public class Main {
                 tmpBoard[cY][cX] = -1;
             }
         }
-        //print(tmpBoard);
         
         // next move
         for(int turn = 1; turn < 4; turn++){
@@ -124,7 +111,6 @@ public class Main {
                 Board[i][j] = a;
             }
         }
-        //print(Board);
         dfs(Board, Fish, 0, 0, 0);
         System.out.println(ans);
     }
