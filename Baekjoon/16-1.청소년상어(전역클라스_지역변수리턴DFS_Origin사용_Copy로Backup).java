@@ -54,7 +54,7 @@ public class Main {
         
         // shark eat
         int targetFish = Board[Shark.y][Shark.x];
-        Shark.dir   = Fish[targetFish].dir;
+        Shark.dir      = Fish[targetFish].dir;
         
         Shark.sum += (targetFish + 1);
 
