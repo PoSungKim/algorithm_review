@@ -68,15 +68,14 @@ public class Main {
             int cDir = tmpFish[i].dir;
 
             int nDir = cDir;
-            if (nDir == -1) {
-                System.out.format("(%s, %s, %s, %s)\n", i, tmpFish[i].y, tmpFish[i].x, tmpFish[i].dir);
-            }
-            int nY   = cY + Dirs[nDir][0];
-            int nX   = cX + Dirs[nDir][1];
-            while(nY < 0 || 3 < nY || nX < 0 || 3 < nX || (nY == shark_y && nX == shark_x)) {
-                nDir = (nDir + 1) % 8;
+            int nY   = cY;
+            int nX   = cX;
+            for(int turn = 0; turn < 8; turn++) {
+                nDir = (cDir + turn) % 8;
                 nY   = cY + Dirs[nDir][0];
                 nX   = cX + Dirs[nDir][1];   
+                if (!(nY < 0 || 3 < nY || nX < 0 || 3 < nX || (nY == shark_y && nX == shark_x))) 
+                    break;   
             }
 
             if (tmpBoard[nY][nX] != -1) {
