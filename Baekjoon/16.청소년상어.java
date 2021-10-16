@@ -48,7 +48,6 @@ public class Main {
         tmpFish[targetFish].dir = -1;
         tmpBoard[shark_y][shark_x] = -1;
         
-        //print(tmpBoard);
         // fish move
         for(int i = 0; i < 16; i++) {
             if (tmpFish[i].y == -1) continue;
