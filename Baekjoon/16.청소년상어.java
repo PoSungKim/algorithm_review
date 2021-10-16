@@ -10,7 +10,6 @@ public class Main {
         }
     }
     public static int[][] Dirs = new int[][]{{-1, 0}, {-1, -1}, {0, -1}, {1, -1}, {1, 0}, {1, 1}, {0, 1}, {-1, 1}};
-    public static int ans = 0;
 
     public static int[][] copyBoard(int[][] Board){
         int[][] tmpBoard = new int[4][4];
@@ -31,17 +30,21 @@ public class Main {
         return tmpFish;
     }
 
-    public static void dfs(int[][] Board, Fish[] Fish, int shark_y, int shark_x, int sum) {
+    public static int dfs(int[][] Board, Fish[] Fish, int shark_y, int shark_x, int sum) {
+        if (shark_y < 0 || 3 < shark_y || shark_x < 0 || 3 < shark_x)
+            return sum;
+        if (Board[shark_y][shark_x] == -1)
+            return sum;
+        
         // copy
         int[][] tmpBoard = copyBoard(Board);
-        Fish[] tmpFish  = copyFish(Fish);
+        Fish[] tmpFish   = copyFish(Fish);
         
         // shark eat
         int targetFish = tmpBoard[shark_y][shark_x];
         int sharkDir   = tmpFish[targetFish].dir;
         
         sum += (targetFish + 1);
-        if (ans < sum) ans = sum;
 
         tmpFish[targetFish].y = -1;
         tmpFish[targetFish].x = -1;
@@ -86,15 +89,14 @@ public class Main {
         }
         
         // next move
+        int max_n = sum;
         for(int turn = 1; turn < 4; turn++){
             int nY = shark_y + Dirs[sharkDir][0] * turn;
             int nX = shark_x + Dirs[sharkDir][1] * turn;
-            if (nY < 0 || 3 < nY || nX < 0 || 3 < nX)
-                break;
 
-            if (tmpBoard[nY][nX] != -1)
-                dfs(tmpBoard, tmpFish, nY, nX, sum);
+            max_n = Math.max(max_n, dfs(tmpBoard, tmpFish, nY, nX, sum));
         }
+        return max_n;
     }
     public static void main(String[] args) {
         int[][] Board = new int[4][4];
@@ -110,7 +112,6 @@ public class Main {
                 Board[i][j] = a;
             }
         }
-        dfs(Board, Fish, 0, 0, 0);
-        System.out.println(ans);
+        System.out.println(dfs(Board, Fish, 0, 0, 0));
     }
 }
