@@ -111,6 +111,8 @@ public class Main {
             Shark.y = Shark.y + Dirs[Shark.dir][0] * turn;
             Shark.x = Shark.x + Dirs[Shark.dir][1] * turn;
             
+            // 실행 가능한 모든 케이스에 대한 함수를 돌려서 백트래킹 조건에 따라 지역 변수를 리턴하고, 
+            // 재귀함수로 연결된 지역 변수들 중 최대값을 가려내서 정답으로 리턴하는 형식
             max_n = Math.max(max_n, dfs());
             
             Board = copyBoard(tmpBoard);

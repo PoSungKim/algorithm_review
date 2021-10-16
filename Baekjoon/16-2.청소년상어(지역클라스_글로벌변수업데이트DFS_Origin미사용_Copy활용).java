@@ -91,7 +91,8 @@ public class Main {
             int nX = shark_x + Dirs[sharkDir][1] * turn;
             if (nY < 0 || 3 < nY || nX < 0 || 3 < nX)
                 break;
-
+            
+            // 에러가 없는 케이스만 함수를 돌려서 전역 변수를 업데이트하여 정답으로 리턴하는 형식
             if (tmpBoard[nY][nX] != -1)
                 dfs(tmpBoard, tmpFish, nY, nX, sum);
         }
