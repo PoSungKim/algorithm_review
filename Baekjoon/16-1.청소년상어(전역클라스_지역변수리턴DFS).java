@@ -9,9 +9,19 @@ public class Main {
             this.dir = dir;
         }
     }
+    public static class Shark {
+        int y, x, dir, sum;
+        public Shark(int y, int x, int dir, int sum) {
+            this.y = y;
+            this.x = x; 
+            this.dir = dir;
+            this.sum = sum;
+        }
+    }
     public static int[][] Dirs = new int[][]{{-1, 0}, {-1, -1}, {0, -1}, {1, -1}, {1, 0}, {1, 1}, {0, 1}, {-1, 1}};
     public static int[][] Board = new int[4][4];
     public static Fish[] Fish = new Fish[16];
+    public static Shark Shark = new Shark(0, 0, 0, 0);
 
     public static int[][] copyBoard(int[][] Board){
         int[][] tmpBoard = new int[4][4];
@@ -32,22 +42,26 @@ public class Main {
         return tmpFish;
     }
 
-    public static int dfs(int shark_y, int shark_x, int sum) {
-        if (shark_y < 0 || 3 < shark_y || shark_x < 0 || 3 < shark_x)
-            return sum;
-        if (Board[shark_y][shark_x] == -1)
-            return sum;
+    public static Shark copyShark(Shark Shark) {
+        return new Shark(Shark.y, Shark.x, Shark.dir, Shark.sum);
+    }
+
+    public static int dfs() {
+        if (Shark.y < 0 || 3 < Shark.y || Shark.x < 0 || 3 < Shark.x)
+            return Shark.sum;
+        if (Board[Shark.y][Shark.x] == -1)
+            return Shark.sum;
         
         // shark eat
-        int targetFish = Board[shark_y][shark_x];
-        int sharkDir   = Fish[targetFish].dir;
+        int targetFish = Board[Shark.y][Shark.x];
+        Shark.dir   = Fish[targetFish].dir;
         
-        sum += (targetFish + 1);
+        Shark.sum += (targetFish + 1);
 
         Fish[targetFish].y = -1;
         Fish[targetFish].x = -1;
         Fish[targetFish].dir = -1;
-        Board[shark_y][shark_x] = -1;
+        Board[Shark.y][Shark.x] = -1;
         
         // fish move
         for(int i = 0; i < 16; i++) {
@@ -60,7 +74,7 @@ public class Main {
             int nDir = cDir;
             int nY   = cY + Dirs[nDir][0];
             int nX   = cX + Dirs[nDir][1];
-            while(nY < 0 || 3 < nY || nX < 0 || 3 < nX || (nY == shark_y && nX == shark_x)) {
+            while(nY < 0 || 3 < nY || nX < 0 || 3 < nX || (nY == Shark.y && nX == Shark.x)) {
                 nDir = (nDir + 1) % 8;
                 nY   = cY + Dirs[nDir][0];
                 nX   = cX + Dirs[nDir][1];   
@@ -89,16 +103,19 @@ public class Main {
         // copy
         int[][] tmpBoard = copyBoard(Board);
         Fish[] tmpFish   = copyFish(Fish);
+        Shark tmpShark   = copyShark(Shark);
 
         // next move
-        int max_n = sum;
+        int max_n = Shark.sum;
         for(int turn = 1; turn < 4; turn++){
-            int nY = shark_y + Dirs[sharkDir][0] * turn;
-            int nX = shark_x + Dirs[sharkDir][1] * turn;
-
-            max_n = Math.max(max_n, dfs(nY, nX, sum));
+            Shark.y = Shark.y + Dirs[Shark.dir][0] * turn;
+            Shark.x = Shark.x + Dirs[Shark.dir][1] * turn;
+            
+            max_n = Math.max(max_n, dfs());
+            
             Board = copyBoard(tmpBoard);
             Fish  = copyFish(tmpFish);
+            Shark = copyShark(tmpShark);
         }
         return max_n;
     }
@@ -114,6 +131,6 @@ public class Main {
                 Board[i][j] = a;
             }
         }
-        System.out.println(dfs(0, 0, 0));
+        System.out.println(dfs());
     }
 }
