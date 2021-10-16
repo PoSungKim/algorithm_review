@@ -10,6 +10,8 @@ public class Main {
         }
     }
     public static int[][] Dirs = new int[][]{{-1, 0}, {-1, -1}, {0, -1}, {1, -1}, {1, 0}, {1, 1}, {0, 1}, {-1, 1}};
+    public static int[][] Board = new int[4][4];
+    public static Fish[] Fish = new Fish[16];
 
     public static int[][] copyBoard(int[][] Board){
         int[][] tmpBoard = new int[4][4];
@@ -30,34 +32,30 @@ public class Main {
         return tmpFish;
     }
 
-    public static int dfs(int[][] Board, Fish[] Fish, int shark_y, int shark_x, int sum) {
+    public static int dfs(int shark_y, int shark_x, int sum) {
         if (shark_y < 0 || 3 < shark_y || shark_x < 0 || 3 < shark_x)
             return sum;
         if (Board[shark_y][shark_x] == -1)
             return sum;
         
-        // copy
-        int[][] tmpBoard = copyBoard(Board);
-        Fish[] tmpFish   = copyFish(Fish);
-        
         // shark eat
-        int targetFish = tmpBoard[shark_y][shark_x];
-        int sharkDir   = tmpFish[targetFish].dir;
+        int targetFish = Board[shark_y][shark_x];
+        int sharkDir   = Fish[targetFish].dir;
         
         sum += (targetFish + 1);
 
-        tmpFish[targetFish].y = -1;
-        tmpFish[targetFish].x = -1;
-        tmpFish[targetFish].dir = -1;
-        tmpBoard[shark_y][shark_x] = -1;
+        Fish[targetFish].y = -1;
+        Fish[targetFish].x = -1;
+        Fish[targetFish].dir = -1;
+        Board[shark_y][shark_x] = -1;
         
         // fish move
         for(int i = 0; i < 16; i++) {
-            if (tmpFish[i].y == -1) continue;
+            if (Fish[i].y == -1) continue;
 
-            int cY = tmpFish[i].y;
-            int cX = tmpFish[i].x;
-            int cDir = tmpFish[i].dir;
+            int cY = Fish[i].y;
+            int cX = Fish[i].x;
+            int cDir = Fish[i].dir;
 
             int nDir = cDir;
             int nY   = cY + Dirs[nDir][0];
@@ -68,39 +66,43 @@ public class Main {
                 nX   = cX + Dirs[nDir][1];   
             }
 
-            if (tmpBoard[nY][nX] != -1) {
-                int tmpTarget = tmpBoard[nY][nX];
-                tmpFish[tmpTarget].y = cY;
-                tmpFish[tmpTarget].x = cX;
-                tmpFish[i].y = nY;
-                tmpFish[i].x = nX;
-                tmpFish[i].dir = nDir;
+            if (Board[nY][nX] != -1) {
+                int tmpTarget = Board[nY][nX];
+                Fish[tmpTarget].y = cY;
+                Fish[tmpTarget].x = cX;
+                Fish[i].y = nY;
+                Fish[i].x = nX;
+                Fish[i].dir = nDir;
 
-                tmpBoard[nY][nX] = i;
-                tmpBoard[cY][cX] = tmpTarget;                
+                Board[nY][nX] = i;
+                Board[cY][cX] = tmpTarget;                
             } else {
-                tmpFish[i].y = nY;
-                tmpFish[i].x = nX;
-                tmpFish[i].dir = nDir;
+                Fish[i].y = nY;
+                Fish[i].x = nX;
+                Fish[i].dir = nDir;
 
-                tmpBoard[nY][nX] = i;
-                tmpBoard[cY][cX] = -1;
+                Board[nY][nX] = i;
+                Board[cY][cX] = -1;
             }
         }
-        
+
+        // copy
+        int[][] tmpBoard = copyBoard(Board);
+        Fish[] tmpFish   = copyFish(Fish);
+
         // next move
         int max_n = sum;
         for(int turn = 1; turn < 4; turn++){
             int nY = shark_y + Dirs[sharkDir][0] * turn;
             int nX = shark_x + Dirs[sharkDir][1] * turn;
 
-            max_n = Math.max(max_n, dfs(tmpBoard, tmpFish, nY, nX, sum));
+            max_n = Math.max(max_n, dfs(nY, nX, sum));
+            Board = copyBoard(tmpBoard);
+            Fish  = copyFish(tmpFish);
         }
         return max_n;
     }
     public static void main(String[] args) {
-        int[][] Board = new int[4][4];
-        Fish[] Fish = new Fish[16];
         Scanner sc = new Scanner(System.in);
         
         for(int i = 0; i < 4; i++) {
@@ -112,6 +114,6 @@ public class Main {
                 Board[i][j] = a;
             }
         }
-        System.out.println(dfs(Board, Fish, 0, 0, 0));
+        System.out.println(dfs(0, 0, 0));
     }
 }
