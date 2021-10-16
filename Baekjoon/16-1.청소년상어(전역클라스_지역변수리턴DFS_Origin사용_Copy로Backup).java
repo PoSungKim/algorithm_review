@@ -106,7 +106,7 @@ public class Main {
         Shark tmpShark   = copyShark(Shark);
 
         // next move
-        int max_n = Shark.sum;
+        int max_n = -1;
         for(int turn = 1; turn < 4; turn++){
             Shark.y = Shark.y + Dirs[Shark.dir][0] * turn;
             Shark.x = Shark.x + Dirs[Shark.dir][1] * turn;
