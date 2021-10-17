@@ -19,9 +19,7 @@ public class Main {
     public static void getInput() {
         Scanner sc = new Scanner(System.in);
         N = sc.nextInt(); M = sc.nextInt();
-        
         Robot = new Robot(sc.nextInt(),sc.nextInt(),sc.nextInt());
-
         for(int i = 0; i < N; i++) for(int j = 0; j < M; j++) Board[i][j][0] = sc.nextInt();
     }
 
