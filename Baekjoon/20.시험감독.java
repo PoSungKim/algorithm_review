@@ -27,6 +27,7 @@ public class Main {
         // long       : 8B >> 대략 800경까지의 숫자까지 표현 가능
         // int        : 4B >> 대략 21억까지의 숫자까지만 표현 가능
         // worst case : 10^6 * 10^6 = 10^12 ~ 1조 단위까지 가기 때문에 int가 아닌 long 타입으로 리턴 필요
+        // https://about-life.tistory.com/26
         System.out.println(solve());
     }
 }
