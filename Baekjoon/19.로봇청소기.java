@@ -28,7 +28,7 @@ public class Main {
                 ans++;
                 Board[nY][nX][1] = 1;
                 solve(nY, nX, nD);
-                // 조건이 만족되어 새로운 연산이 실행되면 기존 연산은 끝난 것이기에 Break를 해줘야 함
+                // 조건이 만족되어 새로운 연산이 실행되면 기존 연산은 끝난 것이기에 Return을 해줘야 함
                 break;
             }
             else if (Board[nY][nX][0] == 1 || Board[nY][nX][1] == 1) 
