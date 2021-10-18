@@ -54,6 +54,7 @@ public class Main {
         
         return 0;
     }
+    
     public static void main(String [] args) {
         getInput();
         solve();
