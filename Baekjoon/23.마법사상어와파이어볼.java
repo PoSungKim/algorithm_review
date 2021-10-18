@@ -40,18 +40,12 @@ public class Main {
                     int nR = Ball.r + Dirs[Ball.d][0] * Ball.s;
                     int nC = Ball.c + Dirs[Ball.d][1] * Ball.s;
                     
-                    while (nR < 0) {
-                        nR = N + nR;
-                    } 
-                    while(N - 1 < nR) {
-                        nR %= N;
-                    }
-                    while (nC < 0) {
-                        nC = N + nC;
-                    }
-                    while(N - 1 < nC) {
-                        nC %= N;
-                    }
+                    // 다시 되돌아 오는 케이스
+                    while (nR < 0) nR = N + nR;
+                    while(N - 1 < nR) nR %= N;
+
+                    while (nC < 0) nC = N + nC;
+                    while(N - 1 < nC) nC %= N;
                     
                     Ball.r = nR;
                     Ball.c = nC;
