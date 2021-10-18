@@ -11,7 +11,8 @@ public class Main {
             this.List = List;
             this.cntTotal = this.List.size();
             this.cntZero = findZero();
-            this.stdBlock = findStdBlock();
+            this.stdBlock = List.get(0);
+            // this.stdBlock = findStdBlock();
         }
 
         @Override
