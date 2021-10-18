@@ -51,9 +51,12 @@ public class Main {
                     Ball.c = nC;
                     tmpList.add(Ball);
                 }
+                // 위 for문에서 .remove()로 바로 삭제하면 for(int k = 0; k < BallList[i][j].size(); k++) 부분이 제대로 실행될 수 없기 때문에
+                // 모든 연산이 종료된 이후 .clear()로 삭제
                 BallList[i][j].clear();
             }
         }
+        // 모든 연산이 끝나고 나서 넣어주기
         for(FireBall Ball : tmpList) BallList[Ball.r][Ball.c].add(Ball);
     }
 
