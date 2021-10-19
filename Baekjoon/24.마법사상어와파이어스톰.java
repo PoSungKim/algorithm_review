@@ -5,7 +5,7 @@ public class Main {
     public static int[][] tmpBoard = new int[1<<6][1<<6];
     public static int[][] Board = new int[1<<6][1<<6];
     public static int[] L = new int[1000];
-    public static int N, Q, maxGroup;
+    public static int N, Q;
     
     public static void getInput() {
         Scanner sc = new Scanner(System.in);
@@ -59,22 +59,22 @@ public class Main {
         }
     }
 
-    public static int countGroups(int L) {
+    public static int countGroups() {
         boolean[][] Visited = new boolean[1 << N][1 << N];
         int cntGroup = 0;
         
         for(int i = 0; i < (1 << N); i++){
             for(int j = 0; j < (1 << N); j++) {
                 if (Visited[i][j]) continue;
-                if (tmpBoard[i][j] == 0) continue;
-                cntGroup = Math.max(cntGroup, countGroup(Visited, i, j, L));
+                if (Board[i][j] == 0) continue;
+                cntGroup = Math.max(cntGroup, countGroup(Visited, i, j));
             }
         }
 
         return cntGroup;
     }
 
-    public static int countGroup (boolean[][] Visited, int y, int x, int L) {
+    public static int countGroup (boolean[][] Visited, int y, int x) {
         Queue<int[]> Queue = new LinkedList<>();
         Queue.offer(new int[]{y, x});
         Visited[y][x] = true;
@@ -89,7 +89,7 @@ public class Main {
 
                 if (nY < 0 || (1 << N) <= nY || nX < 0 || (1 << N) <= nX) continue;
                 if (Visited[nY][nX]) continue;
-                if (tmpBoard[nY][nX] == 0) continue;
+                if (Board[nY][nX] == 0) continue;
 
                 Visited[nY][nX] = true;
                 Queue.offer(new int[] {nY, nX});
@@ -99,27 +99,25 @@ public class Main {
         return cnt;
     }
 
-    public static int[] solve() {
+    public static int countSum() {
+        int sum = 0; for(int i = 0; i < (1 << N); i++) for(int j = 0; j < (1 << N); j++) sum += Board[i][j]; return sum;
+    }
+
+    public static void solve() {
+
         for(int i = 0; i < Q; i++) {
             tmpBoard = new int[2 << N][2 << N]; 
-            maxGroup = 0;
-            
             rotate90(L[i], 'R');
             melt();
-
-            maxGroup = Math.max(maxGroup, countGroups(L[i]));
-            
             Board = tmpBoard;
         }
-
-        int sum = 0;
-        for(int i = 0; i < (1 << N); i++) for(int j = 0; j < (1 << N); j++) sum += Board[i][j];
-
-        return new int[] {sum, maxGroup};
+        
+        System.out.println(countSum());
+        System.out.println(countGroups());
+        return;
     }
     public static void main(String[] args) {
         getInput();
-        int[] ans = solve();
-        for(int i = 0; i < 2; i++) System.out.println(ans[i]);
+        solve();
     }
 }
