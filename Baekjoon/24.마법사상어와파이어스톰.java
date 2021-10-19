@@ -1,9 +1,8 @@
 import java.util.*;
 
 public class Main {
+    public static int[][] Board = new int[1<<6][1<<6], tmpBoard = new int[1<<6][1<<6]; 
     public static int[][] Dirs = new int[][] { {-1, 0}, {0, 1}, {1, 0}, {0, -1}};
-    public static int[][] tmpBoard = new int[1<<6][1<<6];
-    public static int[][] Board = new int[1<<6][1<<6];
     public static int[] L = new int[1000];
     public static int N, Q;
     
