@@ -5,7 +5,7 @@ public class Main {
     public static int[][] tmpBoard = new int[1<<6][1<<6];
     public static int[][] Board = new int[1<<6][1<<6];
     public static int[] L = new int[1000];
-    public static int N, Q;
+    public static int N, Q, maxGroup;
     
     public static void getInput() {
         Scanner sc = new Scanner(System.in);
@@ -100,8 +100,6 @@ public class Main {
     }
 
     public static int[] solve() {
-        // print(Board);
-        int maxGroup = 0;
         for(int i = 0; i < Q; i++) {
             tmpBoard = new int[2 << N][2 << N]; 
             maxGroup = 0;
