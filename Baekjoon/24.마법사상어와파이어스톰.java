@@ -14,7 +14,7 @@ public class Main {
         for(int i = 0; i < Q; i++) L[i] = sc.nextInt();
     }
 
-    public static void rotate90(int L, char rotate) {
+    public static void rotate90(int L) {
         L = 1 << L;
 
         for(int i = 0; i < (1 << N); i += L) {
@@ -107,7 +107,7 @@ public class Main {
 
         for(int i = 0; i < Q; i++) {
             tmpBoard = new int[2 << N][2 << N]; 
-            rotate90(L[i], 'R');
+            rotate90(L[i]);
             melt();
             Board = tmpBoard;
         }
