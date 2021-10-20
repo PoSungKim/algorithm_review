@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.*; 
 
 public class Main {
     public static int[][] Board = new int[1<<6][1<<6], tmpBoard = new int[1<<6][1<<6]; 
