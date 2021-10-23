@@ -53,17 +53,6 @@ public class Main {
         RainClouds.add(new Cloud(N - 2, 1));
     }
 
-    public static void print(int[][] Buckets) {
-        System.out.println();
-        for(int i = 0; i < N; i++) { 
-            for(int j = 0; j < N; j++) {
-                System.out.format("%2s ", Buckets[i][j]);
-            }
-            System.out.println();
-        }
-        System.out.println();
-    }
-
     public static void moveClouds(int[] Move) {
         int dir  = Move[0];
         int dist = Move[1];
@@ -72,18 +61,10 @@ public class Main {
             int nY = curCloud.y + Dirs[dir][0] * dist;
             int nX = curCloud.x + Dirs[dir][1] * dist;
 
-            while (nY < 0 ) {
-                nY = N + nY;
-            } 
-            while (nX < 0) {
-                nX = N + nX;
-            }
-            while(N <= nY) {
-                nY = nY % N;
-            }
-            while(N <= nX) {
-                nX = nX % N;
-            }
+            while (nY < 0 ) nY = N + nY;            
+            while (nX < 0) nX = N + nX;
+            while(N <= nY) nY = nY % N;
+            while(N <= nX) nX = nX % N;
 
             Buckets[nY][nX]++;
             curCloud.y = nY;
