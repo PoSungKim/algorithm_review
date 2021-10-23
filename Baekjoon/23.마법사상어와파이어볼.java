@@ -28,7 +28,7 @@ public class Main {
             int r = sc.nextInt(); int c = sc.nextInt(); int m = sc.nextInt(); int s = sc.nextInt(); int d = sc.nextInt();
             BallList[r - 1][c - 1].add(new FireBall(r - 1, c - 1, m, s, d));
         }
-    } 
+    }
 
     public static void makeOrder() {
         List<FireBall> tmpList = new ArrayList<>();
