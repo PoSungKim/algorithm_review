@@ -20,7 +20,8 @@ public class Main {
             for(int j = 0; j < (1 << N); j += L) {
                 for(int r = 0; r < L; r++) {
                     for(int c = 0; c < L; c++) {
-                        tmpBoard[i + r][j + c] = Board[i + L - 1 - c][j + r]; // right
+                        tmpBoard[i + c][j + L - 1 - r] = Board[i + r][j + c];
+                        //tmpBoard[i + r][j + c] = Board[i + L - 1 - c][j + r]; // right
                         // else if (rotate == 'L') Board[i + r][j + c] = tmpBoard[i + c][j + L - 1 - r]; // left
                     }
                 }
