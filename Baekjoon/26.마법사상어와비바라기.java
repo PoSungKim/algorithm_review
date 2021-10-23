@@ -35,9 +35,7 @@ public class Main {
         
         for(int i = 0; i < N; i++) {
             st = new StringTokenizer(bf.readLine());
-            for(int j = 0; j < N; j++) {
-                Buckets[i][j] = Integer.parseInt(st.nextToken());
-            }
+            for(int j = 0; j < N; j++) Buckets[i][j] = Integer.parseInt(st.nextToken());
         }
 
         for(int i = 0; i < M; i++) {
@@ -58,13 +56,9 @@ public class Main {
         int dist = Move[1];
         for(int i = 0; i < RainClouds.size(); i++) {
             Cloud curCloud = RainClouds.get(i);
-            int nY = curCloud.y + Dirs[dir][0] * dist;
-            int nX = curCloud.x + Dirs[dir][1] * dist;
-
-            while (nY < 0 ) nY = N + nY;            
-            while (nX < 0) nX = N + nX;
-            while(N <= nY) nY = nY % N;
-            while(N <= nX) nX = nX % N;
+            // Dirs[dir][0] * dist의 범위가 N을 넘어갈 수 있기 때문에, 몇 바퀴를 돌 수 있다.
+            int nY = (curCloud.y + N + Dirs[dir][0] * dist % N) % N ;
+            int nX = (curCloud.x + N + Dirs[dir][1] * dist % N) % N ;
 
             Buckets[nY][nX]++;
             curCloud.y = nY;
