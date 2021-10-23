@@ -5,7 +5,7 @@ public class Main {
         public List<int[]> List;
         public int color, cntTotal, cntZero;
         public int[] stdBlock;
-
+        
         public Group(int color, List<int[]> List) {
             this.color = color;
             this.List = List;
@@ -133,7 +133,7 @@ public class Main {
         int[][][] tmpBoard = new int[20][20][2];
         for(int i = 0; i < N; i++) {
             for(int j = 0; j < N; j++) { 
-                tmpBoard[i][j] = Board[j][N - 1 - i];
+                tmpBoard[N - 1 - j][i] = Board[i][j];
             }
         }
         return tmpBoard;
