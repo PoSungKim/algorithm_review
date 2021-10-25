@@ -1,4 +1,4 @@
-// Dynamic Programming : 
+// Dynamic Programming :  
 // 1) Optimal Substructure (큰 문제를 작은 문제들로 나누어서 해결)
 // 2) Overlapping Subproblem (동일한 작은 문제들을 반복적으로 해결)
 // 3) Top-Down(재귀), Bottom-Up(반복문) 2 방식 가능
