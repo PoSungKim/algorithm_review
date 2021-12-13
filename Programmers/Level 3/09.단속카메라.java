@@ -12,11 +12,6 @@ class Solution {
         public int compareTo(Route a) {
             return this.end - a.end;
         }
-        
-        @Override
-        public String toString() {
-            return String.format("(%s, %s)", start, end);
-        }
     }
     
     List<Route> L = new ArrayList<>();
