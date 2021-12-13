@@ -1,3 +1,5 @@
+// top-down 이후에 bottom-up으로 올라가면서 연산하는 방식이라서 time-out 발생하는 풀이 : 연습용 풀이
+
 import java.util.*;
 
 class Solution {
