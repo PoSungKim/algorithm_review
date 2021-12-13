@@ -11,11 +11,6 @@ class Solution {
             this.amount = 0;
             this.name = name.equals("-") ? "center" : name;
         }
-        
-        @Override
-        public String toString() {
-            return String.format("(%s, %s : %s)", name, amount, Parent);
-        }
     }
     
     Map<String, Node> NodeMap = new HashMap<>();
