@@ -52,5 +52,8 @@ class Solution {
       // 5) startsWith, endsWith
       System.out.println(test.startsWith("te"));
       System.out.println(test.endsWith("st"));
+	    
+      // repeat(int n) >> 현재 문자열 5개를 concat
+      System.out.println("O".repeat(5)); // 00000
     }
 }
