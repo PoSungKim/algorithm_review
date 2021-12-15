@@ -66,7 +66,6 @@ class Solution {
                     break;
                 case 'Z' :
                     Node Delete = myStack.pop();
-                    Node Cursor = Root;
                     
                     Prev = Delete.prev;
                     Next = Delete.next;
