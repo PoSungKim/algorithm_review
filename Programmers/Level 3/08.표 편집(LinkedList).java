@@ -39,22 +39,15 @@ class Solution {
             controlState.add(i);
         }
         cR = k;
-        // System.out.format("StartRow : %s\n", cR);
         
         for(String c : cmd) {
             if (c.length() != 1) {
                 char op = c.charAt(0);
                 int  r  = Integer.parseInt(c.substring(2));
-                // System.out.println(op + " " + r);
                 runCmd(op, r);
             } else {
-                // System.out.println(c);
                 runCmd(c.charAt(0));
             }
-            // System.out.format("curRow : %s\n", cR);
-            // System.out.format("initial : %s\n", initialState);
-            // System.out.format("control : %s\n", controlState);
-            // System.out.format("delete  : %s\n", deleteState);
         }
         HashSet<LinkedList<Integer>> S = new HashSet(controlState);
         StringBuilder ans = new StringBuilder();
