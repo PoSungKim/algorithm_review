@@ -1,36 +1,20 @@
 import java.util.*;
 
 class Solution {
-    class Route implements Comparable<Route> {
-        int start, end;
-        public Route(int start, int end) { 
-            this.start = start;
-            this.end = end;
-        }
-        
-        @Override
-        public int compareTo(Route a) {
-            return this.end - a.end;
-        }
-    }
-    
-    List<Route> L = new ArrayList<>();
-    
     public int solution(int[][] routes) {
-        for(int[] route : routes) L.add(new Route(route[0], route[1]));
-        Collections.sort(L);
+        int curTime = -30001,
+            ans     = 0;
         
-        int answer = 1,
-            tmp    = L.get(0).end;
+        Arrays.sort(routes, (a,b) -> {
+            return a[1] - b[1];
+        });
         
-        for(int i = 1; i < L.size(); i++) {
-            Route next = L.get(i);
-            if (tmp < next.start) {
-                answer++;
-                tmp = next.end;
-            } 
+        for(int[] route : routes) {
+            if (curTime < route[0] ) {
+                curTime = route[1];
+                ans++;
+            }
         }
-        
-        return answer;
+        return ans;
     }
 }
