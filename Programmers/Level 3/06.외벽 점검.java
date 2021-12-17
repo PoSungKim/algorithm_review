@@ -1,71 +1,72 @@
 import java.util.*;
 
 class Solution {
-    final static int INF = 987654321;
-    int minCnt = INF;
-    int[] permLst, circle;
-    List<List<Integer>> ls = new ArrayList<>();
+    static final int MAX = 987654321;
+    List<Integer> M = new ArrayList<>();
+    List<List<Integer>> permList = new ArrayList<>();
+    Integer[] tmpList;
     
-    public void perm(int cnt, int[] dist, int visited) {
+    public void perm(int cnt, int flag, int n, int[] dist) {
         
-        if (cnt == dist.length) {
-            ArrayList<Integer> temp = new ArrayList<>();
-            for(int i = 0; i < dist.length; i++) temp.add(permLst[i]);
-            ls.add(temp);
+        if (cnt == n) {
+            List<Integer> tmp = new ArrayList<>(Arrays.asList(tmpList));
+            permList.add(tmp);
+            return;
         }
         
-        for(int i = 0; i < dist.length; i++) {
-            if ( (visited & (1 << i)) != 0) continue;
-            permLst[cnt] = dist[i];
-            perm(cnt + 1, dist, visited | (1 << i));
+        for (int i = 0; i < n; i++) {
+            if ((flag & (1 << i)) != 0) continue;
+            tmpList[cnt] = dist[i];
+            perm(cnt + 1, flag | (1 << i), n, dist);
         }
-        
     }
     
-    public void findMin(List<Integer> ls, int[] weak) {
-        
-       for(int i = 0; i < weak.length; i++) {
-           int start = weak[i],
-               pos = weak[i],
-               idx = 0;
-           
-           for( ;idx < ls.size() && pos <= circle[circle.length - 1]; ) {
-               pos += ls.get(idx++);
-               if (idx >= minCnt)
-                   break;
-               
-               int cnt = 0,
-                   newPos = pos;
-               for(int j = 0; j < circle.length; j++) {
-                   if (start <= circle[j] && circle[j] <= pos) {
-                       cnt++;
-                       if (cnt == weak.length) {
-                           minCnt = Math.min(minCnt, idx);
-                           break;
-                       }
-                       newPos = circle[j + 1]; 
-                   }
-               }
-               
-               pos = newPos;
-           }
-       } 
-    }
-    public void createCircle(int[] weak, int n) {
-        circle = new int[weak.length * 2];
-        for(int i = 0 ; i < weak.length; i++) circle[i] = weak[i];
-        for(int i = weak.length ; i < weak.length * 2; i++) circle[i] = weak[i - weak.length] + n;
-    }
     public int solution(int n, int[] weak, int[] dist) {
-        createCircle(weak, n);
+        for(int num : weak) M.add(num);
         Arrays.sort(dist);
+        tmpList = new Integer[dist.length];
         
-        permLst = new int[dist.length];
-        perm(0, dist, 0);
+        perm(0,0, dist.length, dist);
         
-        for(int i = ls.size() - 1; i >= 0; i--) 
-            findMin(ls.get(i), weak);
+        int answer = MAX;
+        for(List<Integer> d : permList) {
+            for(int i = 0; i < dist.length; i++)                
+                dist[i] = d.get(i);
+            for(int m = 0; m < 2; m++) {
+                for(int i = 0; i < M.size(); i++) {
+                    List<Integer> L = new ArrayList<>();
+                    for(int num : M) L.add(num);
+
+                    int curPos = L.get(0),
+                        cnt    = 0,
+                        tmpAns = 0;
+                    
+                    for(int j = dist.length - 1; j >= 0; j--) {
+                        tmpAns++;
+                        if (tmpAns > answer) break;
+                        for(int k = 0; k <= dist[j]; k++) {
+                            if (curPos == L.get(0)) {
+                                cnt++;
+                                L.remove(0);
+                            }
+                            if (L.size() == 0) {
+                                answer = Math.min(answer, tmpAns);
+                                break;
+                            }
+                            curPos = (m == 0) ? (curPos + 1) % n : curPos - 1;
+                        }
+                        if (L.size() > 0)
+                            curPos = L.get(0);
+                        else
+                            break;
+                    }
+                    Collections.rotate(M, 1);
+                }
+                Collections.reverse(M);
+            }
+        }
         
-        return INF == minCnt ? -1 : minCnt;
+        if (answer == MAX) return -1;
+        return answer;
     }
 }
