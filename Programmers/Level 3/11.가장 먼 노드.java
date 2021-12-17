@@ -3,25 +3,23 @@ import java.util.*;
 class Solution {
     public boolean[][] graph;
     public boolean[] visited;
-    public int[] distList;
+    public int[] dist;
     public int maxN = -1;
     
     public void bfs(int startNode, int n) {
-        Queue<int[]> myQueue = new LinkedList<>();
+        Queue<Integer> myQueue = new LinkedList<>();
         visited[0] = true;
-        myQueue.offer(new int[]{startNode, 0});
+        myQueue.offer(startNode);
         
         while(!myQueue.isEmpty()) {
-            int[] nodeInfo = myQueue.poll();
-            int node = nodeInfo[0],
-                dist = nodeInfo[1];
-            maxN = Math.max(maxN, dist);
+            int node = myQueue.poll();
+            maxN = Math.max(maxN, dist[node]);
             
             for(int next = 0; next < n; next++) {
                 if (graph[node][next] && !visited[next]) {
                     visited[next] = true;
-                    distList[next] = dist + 1;
-                    myQueue.offer(new int[]{next, dist + 1});
+                    dist[next] = dist[node] + 1;
+                    myQueue.offer(next);
                 }
             }
             
@@ -31,7 +29,7 @@ class Solution {
     public int solution(int n, int[][] edge) {
         graph    = new boolean[n][n];
         visited  = new boolean[n];
-        distList = new int[n];
+        dist     = new int[n];
         
         for(int[] e : edge) {
             int u = e[0] - 1,
@@ -45,7 +43,7 @@ class Solution {
         List<Integer> ans = new ArrayList<>();
         
         for(int i = 0; i < n; i++)
-            if (distList[i] == maxN)
+            if (dist[i] == maxN)
                 ans.add(i + 1);
         
         return ans.size();
