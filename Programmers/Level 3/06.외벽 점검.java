@@ -1,9 +1,9 @@
 import java.util.*;
 
 class Solution {
-    static final int MAX = 987654321;
-    List<Integer> M = new ArrayList<>();
     List<List<Integer>> permList = new ArrayList<>();
+    List<Integer> M = new ArrayList<>();
+    static final int MAX = 987654321;
     Integer[] tmpList;
     
     public void perm(int cnt, int flag, int n, int[] dist) {
@@ -23,7 +23,6 @@ class Solution {
     
     public int solution(int n, int[] weak, int[] dist) {
         for(int num : weak) M.add(num);
-        Arrays.sort(dist);
         tmpList = new Integer[dist.length];
         
         perm(0,0, dist.length, dist);
@@ -40,10 +39,11 @@ class Solution {
                     int curPos = L.get(0),
                         cnt    = 0,
                         tmpAns = 0;
-                    
+
                     for(int j = dist.length - 1; j >= 0; j--) {
                         tmpAns++;
                         if (tmpAns > answer) break;
+                        
                         for(int k = 0; k <= dist[j]; k++) {
                             if (curPos == L.get(0)) {
                                 cnt++;
