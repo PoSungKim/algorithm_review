@@ -7,17 +7,6 @@ class Solution {
     
     public void perm(int pos) {
         
-        for(int i = 0; i < pos; i++) {
-            for(int j = i + 1; j < pos; j++) {
-                if (board[i] == board[j]) {
-                    return;
-                }
-                if (Math.abs(i - j) == Math.abs(board[i] - board[j])) {
-                    return;
-                }
-            }
-        }
-        
         if (pos == board.length) {
             answer++;
             return;
@@ -25,7 +14,13 @@ class Solution {
         
         for(int i = 1; i <= board.length; i++) {
             board[pos] = i;
-            perm(pos + 1);
+            boolean isOkay = true;
+            for(int j = 0; j < pos; j++) {
+                if (board[j] == board[pos]) isOkay = false;
+                if (Math.abs(j - pos) == Math.abs(board[j] - board[pos])) isOkay = false;
+            }
+            if (isOkay)
+                perm(pos + 1);
         }
     }
     
