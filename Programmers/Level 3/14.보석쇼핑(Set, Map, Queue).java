@@ -1,3 +1,5 @@
+// key의 개수만 세면 set의 개수를 세는 것과 같은 성질을 이용 (Key 값은 Unique하기에)
+
 import java.util.*;
 
 class Solution {
