@@ -25,6 +25,9 @@ class Solution {
 
         // File 읽기로 받는 형태 (BufferedReader)
         bufferedReaderReadFile();
+        
+        // UTF-8 인코딩 File 읽기로 받는 형태 (BufferedReader)
+        bufferedReaderReadFileUtf8()
     }
 
     public static void scannerReadStdin() {
@@ -77,6 +80,13 @@ class Solution {
     public static void bufferedReaderReadFile() throws FileNotFoundException, IOException {
         File file = new File("log.txt");
         BufferedReader BR = new BufferedReader(new FileReader(file));
+        System.out.println("bufferedReader >> " + BR.readLine());
+        BR.close();
+    }
+    
+    public static void bufferedReaderReadFileUtf8() throws FileNotFoundException, IOException {
+        File file = new File("log.txt");
+        BufferedReader BR = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF8"));
         System.out.println("bufferedReader >> " + BR.readLine());
         BR.close();
     }
