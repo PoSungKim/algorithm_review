@@ -20,6 +20,9 @@ class Solution {
         // 한 줄씩 데이터가 나열되어 있고, 한 줄 내에서는 " "(whitespace)로 연결되어 있는 형태
         // scannerReadFile2();
 
+        // String 문자열도 받을 수 있다
+        // scannerString();
+
         // 표준 입력으로 받는 형태 (BufferedReader)
         bufferedReaderStdin();
 
@@ -67,6 +70,13 @@ class Solution {
             System.out.println(Arrays.toString(curLine.split(" ")));
         }
         sc.close();
+    }
+    
+    public static void scannerString() {   
+        Scanner sc = new Scanner("This is Test!");
+        while(sc.hasNext()) {
+            System.out.println(sc.next()); //This //is //Test!
+        }
     }
 
     public static void bufferedReaderStdin() throws IOException {
