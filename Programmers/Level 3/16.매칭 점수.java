@@ -1,3 +1,12 @@
+// String.split() 활용
+// String body = page.split("<body>")[1].split("</body>")[0];
+
+// //S : 공백을 제외한 모든 문자 활용
+// String rule = "<meta property=\"og:url\" content=\"https://(\\S*)\"";
+// String rule = "<a href=\"https://(\\S*)\"";
+// 정규식 유용글 : https://coding-factory.tistory.com/529
+
+
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.util.*;
