@@ -1,3 +1,7 @@
+// Copy Constructor : new HashSet<>(Set)
+// 안의 element가 모두 primitive이거나 immutable이면 Deep Copy가 된다
+// 안의 element 안에 reference 타입이 있으면, 해당 reference 타입 멤버 값도 Copy Constructor로 받아주면 된다
+
 import java.util.*;
 
 class Solution {
