@@ -1,36 +1,32 @@
-import java.util.*;
-
 class Solution {
+    int[] Board;
+    int answer = 0;
     
-    public int board[];
-    public int answer = 0;
-    
-    public boolean isOkay(int pos) {
-        for(int j = 0; j < pos; j++) {
-            if (board[j] == board[pos]) 
-                return false ;
-            if (Math.abs(j - pos) == Math.abs(board[j] - board[pos])) 
-                return false ;
-        }
-        return true;
-    }
-    
-    public void perm(int pos) {
+    public void playChess(int pos) {
         
-        if (pos == board.length) {
+        if (pos == Board.length) {
             answer++;
             return;
         }
-        for(int i = 1; i <= board.length; i++) {
-            board[pos] = i;
-            if (isOkay(pos)) 
-                perm(pos + 1);
+        
+        for(int i = 0; i < Board.length; i++) {
+            boolean isOkay = true;
+            for(int j = 0; j < pos; j++) {
+                if (Math.abs(j - pos) == Math.abs(Board[j] - i) || Board[j] == i) {
+                    isOkay = false;
+                    break;
+                }
+            }
+            if (isOkay) {
+                Board[pos] = i;
+                playChess(pos + 1);    
+            }
         }
     }
     
     public int solution(int n) {
-        board = new int[n];
-        perm(0);
+        Board = new int[n];
+        playChess(0);
         
         return answer;
     }
