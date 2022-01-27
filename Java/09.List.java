@@ -6,9 +6,9 @@ class Solution {
     
     public int[] solution(int[] A, int K) {
       
-        List.add(1); // [1]
-        List.add(2); // [1, 2]
-        List.add(3); // [1, 2, 3]
+        List.add(0, 1); // [1] // (index, value)
+        List.add(2);    // [1, 2]
+        List.add(3);    // [1, 2, 3]
         System.out.println(List); // [1, 2, 3]
         System.out.println(List.get(0));      // 1
         System.out.println(List.set(0, 100)); // [100, 2, 3]
