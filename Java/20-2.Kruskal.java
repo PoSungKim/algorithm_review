@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-
+ 
 public class Kruskal {
     public static final int MAX_N = 20;
     public static List<int[]> Edges  = new ArrayList<>();
