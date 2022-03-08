@@ -1,7 +1,6 @@
 import java.util.*;
 
 public class Solution {
-    // 주소값 비교를 통해서 비교 가능
     Set<ListNode> hashSet = new HashSet<>();
     
     public boolean hasCycle(ListNode head) {
