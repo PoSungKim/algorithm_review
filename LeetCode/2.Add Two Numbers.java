@@ -3,48 +3,22 @@ class Solution {
         ListNode ans = new ListNode();
         ListNode head = ans;
         
-        boolean isEndL1 = false,
-                isEndL2 = false;
-        
-        int up = 0;
-        while(!isEndL1 || !isEndL2) {
-            int sum = up;
-            if (!isEndL1)
-                sum += l1.val;
-            if (!isEndL2)
-                sum += l2.val;
+        int carry = 0;
+        while(l1 != null || l2 != null) {
+            int sum = carry;
+            sum     += (l1 != null) ? l1.val : 0;
+            sum     += (l2 != null) ? l2.val : 0;
+            carry   = (sum >= 10) ? 1 : 0;
+            sum     %= 10;
             
-            if (sum >= 10) {
-                up = 1;
-                sum %= 10;
-            } else {
-                up = 0;
-            }
+            ans.next = new ListNode(sum);
+            ans = ans.next;
             
-            ans.val = sum;
-            
-            if (l1.next != null)
-                l1 = l1.next;
-            else
-                isEndL1 = true;
-            
-            if (l2.next != null)
-                l2 = l2.next;
-            else
-                isEndL2 = true;
-            
-            if (!isEndL1 || !isEndL2){
-                ans.next = new ListNode();
-                ans = ans.next;
-            } else {
-                if (up == 1) {
-                    ans.next = new ListNode();
-                    ans = ans.next;
-                    ans.val = up;
-                }
-            }
+            if (l1 != null) l1 = l1.next;
+            if (l2 != null) l2 = l2.next;
         }
+        if (carry == 1) ans.next = new ListNode(carry);
         
-        return head;
+        return head.next;
     }
-}c
+}
