@@ -1,6 +1,5 @@
 # Algorithm Review
 
-<hr>
 
 ### 시각화 사이트
 * [visualgo](https://visualgo.net/en)
