@@ -103,6 +103,21 @@ SELECT NAME, DATETIME
     LIMIT 3;
 ```
 
+```sql
+# Oracle
+select 
+    name, datetime
+from
+    ANIMAL_INS
+where
+    animal_id not in (
+        select animal_id
+        from ANIMAL_OUTS
+    )
+order by datetime 
+fetch first 3 rows only
+```
+
 ## 보호소에서 중성화한 동물
 ```sql
 SELECT a.ANIMAL_ID, a.ANIMAL_TYPE, a.NAME
