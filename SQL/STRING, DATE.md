@@ -23,10 +23,13 @@ SELECT ANIMAL_ID, NAME
 * LIKE 사용 풀이
 
 ```sql
-SELECT ANIMAL_ID, NAME
-    FROM ANIMAL_INS
-    WHERE NAME REGEXP "el" and ANIMAL_TYPE = "Dog"
-    ORDER BY NAME;
+# Oracle 
+select animal_id, name
+from ANIMAL_INS
+where 1=1
+    and regexp_like(name, '.*el.*', 'i')
+    and animal_type = 'Dog'
+order by name;
 ```
 * REGEXP 사용 풀이
 
