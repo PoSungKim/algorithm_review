@@ -61,12 +61,19 @@ order by
 
 ## 동명 동물 수 찾기
 ```sql
-SELECT NAME, COUNT(NAME) as COUNT 
-    FROM ANIMAL_INS 
-    WHERE NAME is not null 
-    GROUP BY NAME 
-    HAVING COUNT > 1 
-    ORDER BY NAME;
+select 
+    name,
+    count(1) "count"
+from
+    ANIMAL_INS
+where 
+    name is not null
+group by
+    name
+having 
+    count(1) >= 2
+order by
+    name;
 ```
 * COUNT(column)은 NULL 미포함, COUNT(*)은 NULL 포함
 
