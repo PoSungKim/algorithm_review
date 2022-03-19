@@ -1,6 +1,6 @@
 ## 최댓값 구하기
 ```mysql
-SELECT MAX(DATETIME) 
+SELECT MAX(DATETIME) "시간"
   FROM ANIMAL_INS;
 ```
 
