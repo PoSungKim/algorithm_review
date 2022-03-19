@@ -1,3 +1,13 @@
+## 고양이와 개는 몇 마리 있을까
+```sql
+SELECT
+animal_type "ANIMAL_TYPE",
+COUNT(1) "count"
+FROM ANIMAL_INS
+group by animal_type
+order by animal_type
+```
+
 ## Cube
 ```sql
 SELECT b.dname, a.job, SUM(a.sal) sal, COUNT(a.empno) emp_count 
