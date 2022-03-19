@@ -6,7 +6,7 @@ SELECT MAX(DATETIME) "시간"
 
 ## 최솟값 구하기
 ```sql
-SELECT MIN(DATETIME) 
+SELECT MINdatetime) as "시간"
   FROM ANIMAL_INS;
 ```
 
