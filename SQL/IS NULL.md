@@ -16,7 +16,11 @@ SELECT ANIMAL_ID
 
 ## NULL 처리하기
 ```sql
-SELECT ANIMAL_TYPE, IFNULL(NAME, "No name") as NAME, SEX_UPON_INTAKE
-    FROM ANIMAL_INS
+select
+    animal_type, nvl(name, 'No name'), sex_upon_intake
+from
+    ANIMAL_INS
+order by
+    animal_id
 ```
 * MySql이면 IFNULL, Oracle이면 NVL
