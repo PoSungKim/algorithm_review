@@ -86,6 +86,41 @@ SELECT hour(DATETIME) as HOUR, count(DATETIME) as COUNT
     ORDER BY HOUR;
 ```
 
+```sql
+select 
+    TO_CHAR(datetime, 'HH24') hour,
+    count(1) count
+from 
+    ANIMAL_OUTS
+where
+    TO_CHAR(datetime, 'HH24') between 9 and 19
+group by
+    TO_CHAR(datetime, 'HH24')
+order by
+    TO_CHAR(datetime, 'HH24')
+;
+```
+
+```sql
+select 
+    hour,
+    count(1) count
+from 
+(
+    select 
+        TO_CHAR(datetime, 'HH24') hour
+    from
+        ANIMAL_OUTS
+)
+where
+    hour between 9 and 19
+group by
+    hour
+order by
+    hour
+;
+```
+
 ## 입양 시각 구하기(2)
 ```sql
 SET @ROWNUM := -1; 
