@@ -94,3 +94,10 @@ SELECT ANIMAL_ID, NAME, date_format(DATETIME, '%Y-%m-%d') as 날짜
 * date_format() 사용 풀이
     * date_format(DATETIME, concat('%Y-%m-%d ','%H:%i:%s')) as 날짜 // format 단축키 숙지 필요! 
     * 특히, 분 단위 단축키 --> %i
+
+```sql
+# Oracle
+select animal_id, name, to_char(datetime, 'YYYY-MM-DD')
+from ANIMAL_INS
+order by animal_id
+```
