@@ -43,6 +43,19 @@ SELECT  ANIMAL_ID,
 ```
 * IF문 사용 풀이
 
+```sql
+# Oracle
+SELECT
+    animal_id,
+    name,
+    case when regexp_like(SEX_UPON_INTAKE, 'Neutered|Spayed') then 'O'
+         else 'X' 
+    end 중성화
+from 
+    ANIMAL_INS
+order by
+    animal_id
+```
 
 ## 오랜 기간 보호한 동물(2)
 
