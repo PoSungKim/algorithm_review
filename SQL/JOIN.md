@@ -80,6 +80,18 @@ SELECT a.ANIMAL_ID, a.NAME
     ORDER BY a.DATETIME;
 ```
 
+```sql
+# Oracle
+select 
+    a.animal_id, a.name
+from
+    ANIMAL_INS a inner join ANIMAL_OUTS b on a.animal_id = b.animal_id
+where 
+    b.datetime < a.datetime
+order by
+    a.datetime
+```
+
 ## 오랜 기간 보호한 동물(1)
 ```sql
 SELECT NAME, DATETIME
