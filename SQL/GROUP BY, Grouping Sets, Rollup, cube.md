@@ -48,10 +48,15 @@ ORDER BY
 
 ## 고양이와 개는 몇 마리 있을까
 ```sql
-SELECT ANIMAL_TYPE, COUNT(ANIMAL_TYPE) as count 
-    FROM ANIMAL_INS 
-    GROUP BY ANIMAL_TYPE 
-    ORDER BY ANIMAL_TYPE;
+SELECT
+    animal_type "ANIMAL_TYPE",
+    COUNT(1) "count"
+FROM 
+    ANIMAL_INS
+group by 
+    animal_type
+order by 
+    animal_type
 ```
 
 ## 동명 동물 수 찾기
