@@ -35,6 +35,24 @@ SELECT ANIMAL_ID, NAME
     FROM ANIMAL_INS
 ```
 
+```sql
+# Oracle
+select 
+    a.animal_id, a.name
+from  
+    ANIMAL_OUTS a
+    left outer join
+    ANIMAL_INS b
+    on (a.animal_id = b.animal_id)
+where 1 = 1
+    and b.name is null
+    and a.name is not null
+    
+order by
+    a.animal_id,
+    a.name
+```
+
 ## 있었는데요 없었습니다
 ```sql
 SELECT ANIMAL_ID, NAME
