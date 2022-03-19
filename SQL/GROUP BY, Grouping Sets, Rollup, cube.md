@@ -123,17 +123,43 @@ order by
 
 ## 입양 시각 구하기(2)
 ```sql
-SET @ROWNUM := -1; 
+with 
+    a as (
+        select level - 1 hour
+        from dual
+        connect by level <= 24),
+    b as (
+        select to_char(datetime, 'HH24') hour, count(1) count
+        from ANIMAL_OUTS 
+        group by to_char(datetime, 'HH24')
+    )
 
-WITH tempTable AS 
-    (SELECT (@ROWNUM := @ROWNUM + 1) AS HOUR
-     FROM ANIMAL_OUTS 
-     WHERE @ROWNUM < 23)
-     
-SELECT HOUR, count(rt.DATETIME)
-    FROM tempTable as tt
-        LEFT JOIN ANIMAL_OUTS as rt
-        ON tt.HOUR = hour(rt.DATETIME)
-    GROUP BY HOUR
-    ORDER BY HOUR;
+select 
+    a.hour, nvl(count, 0) count
+from 
+    a left join b on (a.hour = to_number(b.hour))
+order by
+    hour
+;
+```
+
+```sql
+with 
+    a as (
+        select level - 1 hour
+        from dual
+        connect by level <= 24),
+    b as (
+        select to_char(datetime, 'HH24') hour, count(1) count
+        from ANIMAL_OUTS 
+        group by to_char(datetime, 'HH24')
+    )
+
+select 
+    a.hour, decode(count, null, 0, count) count
+from 
+    a left join b on (a.hour = to_number(b.hour))
+order by
+    hour
+;
 ```
