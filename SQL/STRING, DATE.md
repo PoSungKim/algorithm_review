@@ -66,6 +66,18 @@ SELECT ANIMAL_INS.ANIMAL_ID, ANIMAL_INS.NAME
     ORDER BY ANIMAL_OUTS.DATETIME - ANIMAL_INS.DATETIME desc
     LIMIT 2;
 ```
+
+```sql
+# Oracle
+
+select
+    a.animal_id, a.name
+from
+    ANIMAL_OUTS a inner join ANIMAL_INS b on a.animal_id = b.animal_id
+order by 
+    a.datetime - b.datetime desc
+fetch first 2 rows only
+```
 * ORDER BY에서도 연산이 가능함
 
 ## DATETIME에서 DATE로 형 변환
