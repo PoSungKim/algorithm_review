@@ -127,6 +127,18 @@ SELECT a.ANIMAL_ID, a.ANIMAL_TYPE, a.NAME
     (a.SEX_UPON_INTAKE = "Intact Female" and (b.SEX_UPON_OUTCOME = "Spayed Female" or b.SEX_UPON_OUTCOME = "Neutered Female"))
     or (a.SEX_UPON_INTAKE = "Intact Male" and (b.SEX_UPON_OUTCOME = "Spayed Male" or b.SEX_UPON_OUTCOME = "Neutered Male"));
 ```
+
+```sql
+# Oracle
+select a.animal_id, a.animal_type, a.name
+from 
+    ANIMAL_INS a inner join ANIMAL_OUTS b on (a.animal_id = b.animal_id)
+where
+    1 = 1
+    and a.sex_upon_intake like 'Intact%'
+    and regexp_like(b.sex_upon_outcome, '^Spayed.*$|^Neutered.*$')
+```
+
 * 문자열 그대로 모두 기입
 ```sql
 SELECT a.ANIMAL_ID, a.ANIMAL_TYPE, a.NAME
