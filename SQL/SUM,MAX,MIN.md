@@ -12,23 +12,11 @@ SELECT MINdatetime) as "시간"
 
 ## 동물 수 구하기
 ```sql
-SELECT COUNT(*) 
+SELECT COUNT(1) "count
   FROM ANIMAL_INS;
 ```
 
 ## 중복 제거하기
-```sql
-SELECT COUNT(A.NAME) 
-  FROM (
-    SELECT DISTINCT NAME 
-    FROM ANIMAL_INS
-    ) AS A;
-```
-```sql
-SELECT COUNT(DISTINCT NAME) 
-  FROM ANIMAL_INS WHERE NAME is not null; 
-```
-* WHERE 절로 좀 더 복잡한 조건들을 넣을 수 있음
 ```sql
 SELECT COUNT(DISTINCT NAME) 
   FROM ANIMAL_INS; 
