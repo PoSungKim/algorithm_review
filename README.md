@@ -3,7 +3,7 @@
 
 ### 시각화 사이트
 * [VisuAlgo](https://visualgo.net/en)
-* [bigocheatsheet](https://www.bigocheatsheet.com/)
+* [Big-O Cheat Sheet](https://www.bigocheatsheet.com/)
 * [The Algorithms](https://the-algorithms.com/)
 <hr>
 
