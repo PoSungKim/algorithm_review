@@ -2,9 +2,9 @@
 
 
 ### 시각화 사이트
-* [visualgo](https://visualgo.net/en)
+* [VisuAlgo](https://visualgo.net/en)
 * [bigocheatsheet](https://www.bigocheatsheet.com/)
-
+* [The Algorithms](https://the-algorithms.com/)
 <hr>
 
 ### [Java 문법](https://github.com/PoSungKim/algorithm_review/tree/master/Java)
