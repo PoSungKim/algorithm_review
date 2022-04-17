@@ -99,8 +99,10 @@ class Solution2 {
         
         System.out.println(PQ2);              // Shows elements in heap (not necessarily ordered) >> don't be tricked! 
         
-        while(!PQ2.isEmpty())
-            System.out.println(PQ2.poll());   // Shows elements in order
+        Iterator<Map.Entry<Integer, Integer>> it = PQ2.iterator();
+        while(it.hasNext()) {
+            it.remove();
+        }
 
         return 0;
     }
