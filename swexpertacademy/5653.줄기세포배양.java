@@ -1,3 +1,7 @@
+// boolean equals(Object obj)
+// int hashCode() ~ Objects.hash(field1, field2, ...)
+// implements Comparable ~ int compareTo(T obj)
+
 import java.lang.reflect.*;
 import java.util.*;
 import java.io.*;
