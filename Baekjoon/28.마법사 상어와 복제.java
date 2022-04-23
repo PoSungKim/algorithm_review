@@ -28,19 +28,28 @@ public class Solution {
     }
 
     public static class Shark {
-        int y, x;
+        public List<Integer[]> sDirsPerm = new ArrayList<>();
+        public int y, x;
 
         public Shark(int y, int x) {
             this.y = y;
             this.x = x;
+            this.makeMoves();
+        }
+
+        public void makeMoves() {
+            for(int i = 0; i < 4; i++)
+                for(int j = 0; j < 4; j++)
+                    for(int k = 0; k < 4; k++)
+                        this.sDirsPerm.add(new Integer[]{i, j, k});
         }
 
         public Integer[] findNextMove() {
 
-            Integer[] nextMove = sDirsPerm.get(0);
+            Integer[] nextMove = this.sDirsPerm.get(0);
             int fcnt = -1;
 
-            for(Integer[] curMove : sDirsPerm ) {
+            for(Integer[] curMove : this.sDirsPerm ) {
                 boolean[][] visited = new boolean[4][4];
 
                 int ny = this.y;
@@ -52,12 +61,14 @@ public class Solution {
                     ny += sDirs[curOrder][0];
                     nx += sDirs[curOrder][1];
 
-                    if (ny < 0 || nx < 0 || 4 <= ny || 4 <= nx) {
+                    if (isNotWithin(ny, nx)) {
                         isOkay = false;
                         break;
                     }
+
                     if (!visited[ny][nx])
                         cnt += board[ny][nx].fishes.size();
+
                     visited[ny][nx] = true;
                 }
 
@@ -72,7 +83,7 @@ public class Solution {
     }
 
     public static class Fish {
-        int id, y, x, d;
+        public int y, x, d;
 
         public Fish(int y, int x, int d) {
             this.y = y;
@@ -87,9 +98,9 @@ public class Solution {
                 ny = this.y + fDirs[nd][0];
                 nx = this.x + fDirs[nd][1];
 
-                if (ny < 0 || nx < 0 || 4 <= ny || 4 <= nx) continue;
-                if (board[ny][nx].scent > 0) continue;
-                if (ny == shark.y && nx == shark.x) continue;
+                if (isNotWithin(ny, nx)) continue;
+                if (isScent(ny, nx)) continue;
+                if (isShark(ny, nx)) continue;
 
                 this.y = ny;
                 this.x = nx;
@@ -101,21 +112,20 @@ public class Solution {
             return this;
         }
 
-        @Override
-        public String toString() {
-            return String.format("F(y : %s, x : %s, d: %s)", this.y, this.x, this.d);
+        public boolean isScent(int ny, int nx) {
+            return board[ny][nx].scent > 0;
+        }
+
+        public boolean isShark(int ny, int nx) {
+            return ny == shark.y && nx == shark.x;
         }
     }
 
-    // fish dir : 대각선 포함
-    public static int[][] fDirs = new int[][] {{0, -1}, {-1, -1}, {-1, 0}, {-1, 1}, {0, 1}, {1, 1}, {1, 0}, {1, -1}};
-    // shark dir : 대각선 미포함
-    public static int[][] sDirs = new int[][] {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
-    public static List<Integer[]> sDirsPerm = new ArrayList<>();
-
     public static int M, S;
-    public static Board[][] board = new Board[4][4];
     public static Shark shark;
+    public static Board[][] board = new Board[4][4];
+    public static int[][] sDirs = new int[][] {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
+    public static int[][] fDirs = new int[][] {{0, -1}, {-1, -1}, {-1, 0}, {-1, 1}, {0, 1}, {1, 1}, {1, 0}, {1, -1}};
 
     public static void initSetting() throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -135,17 +145,16 @@ public class Solution {
         int y = Integer.parseInt(st.nextToken()) - 1;
         int x = Integer.parseInt(st.nextToken()) - 1;
         shark = new Shark(y, x);
-
-        for(int i = 0; i < 4; i++)
-            for(int j = 0; j < 4; j++)
-                for(int k = 0; k < 4; k++)
-                    sDirsPerm.add(new Integer[]{i, j, k});
     }
 
     public static void copyFish() {
         for(int i = 0; i < 4; i++)
             for(int j = 0; j < 4; j++)
                 board[i][j].copy();
+    }
+
+    public static boolean isNotWithin(int ny, int nx) {
+        return (ny < 0 || nx < 0 || 4 <= ny || 4 <= nx);
     }
 
     public static void moveFish() {
