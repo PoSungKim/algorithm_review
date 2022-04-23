@@ -6,7 +6,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Solution {
+public class Main {
 
     public static class Board {
         public List<Fish> fishes = new ArrayList<>();
@@ -17,6 +17,10 @@ public class Solution {
             for(Fish fish : fishes) {
                 copies.add(new Fish(fish.y, fish.x, fish.d));
             }
+        }
+
+        public void reduceScent() {
+            this.scent--;
         }
 
         public void completeCopy() {
@@ -189,7 +193,7 @@ public class Solution {
         for(int i = 0; i < 4; i++)
             for(int j = 0; j < 4; j++)
                 if (board[i][j].scent > 0)
-                    board[i][j].scent--;
+                    board[i][j].reduceScent();
     }
 
     public static void completeCopy() {
