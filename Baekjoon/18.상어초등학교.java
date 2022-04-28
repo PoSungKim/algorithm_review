@@ -1,3 +1,4 @@
+// if(Math.abs(i - y) + Math.abs(j - x) == 1) : 인접 요소 
 import java.util.*;
 
 public class Main {
