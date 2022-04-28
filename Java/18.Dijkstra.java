@@ -1,3 +1,6 @@
+// visited 체크 : DFS처럼 >> PQ 성질에 적합
+// dist 계산 :    BFS처럼 >> 먼저 거리가 계산되어야 그다음 거리도 계산 가능
+
 import java.util.*; 
 
 public class Dijkstra  {
