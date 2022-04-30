@@ -1,3 +1,9 @@
+
+// Obj[][] Board = new Obj[20][20]
+// Obj[] Sharks
+// 에서 Board 2차 배열의 타입이 Sharks의 인덱스 값을 저장하는 ArrayList로 했어도 좋았을 것 같음
+// Board에서 가져온 인덱스 값으로 Obj[] Sharks 정보를 업데이트하는 형태도 하나의 방법 가능
+
 import java.util.*;
 
 public class Main {
