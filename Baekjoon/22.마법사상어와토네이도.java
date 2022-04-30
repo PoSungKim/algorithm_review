@@ -1,3 +1,6 @@
+// int[][][], double[] Percents Winds처럼 아예 모두 정의해서 연산만 해주는게 편함
+// 소수점을 버린다면, double로 정의할 필요는 없음 >> 나중에 / 100으로 나누어도 됌
+// Left, Down, Right, Up 순으로 visited 처리해주면서 계속 돌면 토네이도
 import java.util.Scanner;
 
 public class Main {
