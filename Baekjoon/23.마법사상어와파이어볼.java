@@ -1,3 +1,10 @@
+// 1번 행/열이 N번 행/열과 연결되어 있다
+// speed = (ball[i].s % N)
+// 음수가 될 수 있기에, 선 + N 후 % N 연산 필요
+// ny = (ball[i].y + (dy[dir] * speed) + N) % N;
+// nx = (ball[i].x + (dx[dir] * speed) + N) % N;
+
+
 import java.util.*;
 
 public class Main {
