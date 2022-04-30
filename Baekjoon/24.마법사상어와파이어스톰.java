@@ -1,3 +1,5 @@
+// 90도 rotate : tmpBoard[i + c][j + L - 1 - r] = Board[i + r][j + c];
+
 import java.util.*; 
 
 public class Main {
