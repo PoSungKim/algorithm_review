@@ -1,3 +1,5 @@
+// 반시계 : tmpBoard[N - 1 - j][i] = Board[i][j];
+
 import java.util.*;
 
 public class Main {
