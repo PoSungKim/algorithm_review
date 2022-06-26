@@ -29,6 +29,6 @@ class Solution {
             idx++;
         }
         
-        return sign * (int)res;
+        return sign * res;
     }
 }
