@@ -13,6 +13,8 @@ class Solution {
     public String findAns(int num, int place) {
         
         if (place >= 7) return "";
+        // parsing and manipulating every digit
+        // ex) 987 : 9 --> 8 --> 7
         int n = num / divs[place];
         
         if (n > 0) {
