@@ -33,12 +33,13 @@ class Solution {
         if ( hasNext(idx + 1, str.length()) ) {
             String two = str.substring(idx, idx + 2);
             int   twoN = getNum(two);
-            if ( twoN != 0 )
-                return count(sum + twoN, idx + 2, str);
-            else
-                return count(sum + getNum(one), idx + 1, str);
-        } else 
-            return count(sum + getNum(one), idx + 1, str);
+            
+            return ( twoN != 0 ) 
+                ? count(sum + twoN, idx + 2, str) 
+                : count(sum + getNum(one), idx + 1, str);
+        }  
+        
+        return count(sum + getNum(one), idx + 1, str);
     }
 
     public int romanToInt(String s) {
