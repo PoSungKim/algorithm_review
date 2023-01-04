@@ -1,6 +1,6 @@
 import java.util.*;
 
-// Time Complexity  : O(nlogn)
+// Time Complexity  : O(nlogn + n^2) = O(n^2)
 // Space Complexity : O(n^3)
 import java.util.*;
 
