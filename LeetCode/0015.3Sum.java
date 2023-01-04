@@ -1,11 +1,15 @@
 import java.util.*;
 
-public class Solution {
 
-    public List<List<Integer>> ans = new ArrayList<>();
+// Time Complexity  : O(nlogn)
+// Space Complexity : O(n^3)
+import java.util.*;
+
+public class Solution {
 
     public List<List<Integer>> threeSum(int[] nums) {
 
+        List<List<Integer>> ans = new ArrayList<>();
         Arrays.sort(nums);
 
         for(int i = 0; i < nums.length && nums[i] <= 0; i++) {
