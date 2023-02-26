@@ -16,10 +16,11 @@ class Solution {
 
     public int[] searchRange(int[] nums, int target) {
 
-        int left = binarySearch(nums, target, 0, nums.length - 1);
+        int left  = binarySearch(nums, target, 0, nums.length - 1);
         int right = binarySearch(nums, target + 1, 0, nums.length - 1) - 1;
-
-        if (left > 0 && nums[left] == target)
+        
+        // 빈 Array 케이스를 피하기 위한 left < nums.length 조건 추가
+        if (left < nums.length && nums[left] == target)
             return new int[] {left, right};
 
         return new int[] {-1, -1};
